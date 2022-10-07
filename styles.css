@@ -3,19 +3,87 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -23,28 +91,162 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
-body {
-	line-height: 1;
-}
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 /* CSS Reset end */
+
+:root {
+	--primaryColor: #010440;
+	--secondaryColor: #023859;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+body {
+	min-height: 100vh;
+	line-height: 1;
+	font-family: 'Jost', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	position: relative;
+	display: inline-block;
+	line-height: 1.4375;
+}
+
+.card__popupWrapper {
+	visibility: hidden;
+	position: absolute;
+	z-index: 100;
+	bottom: calc(100% + 8px);
+	left: 50%;
+	transform: translateX(-50%) scaleY(70%);
+	width: 240px;
+	background-color: #D9D9D9;
+	border-radius: 8px;
+	padding: 8px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	opacity: 0;
+	transition-property: transform, opacity;
+	transition-timing-function: ease-in-out;
+	transition-duration: 0.25s;
+}
+
+.card__popupWrapper--isSelected {
+	visibility: visible;
+	transform-origin: bottom;
+	transform: translateX(-50%) scaleY(100%);
+	opacity: 1;
+}
+
+.card__popupIconLinksContainer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card__popupDescription {
+	margin-top: 8px;
+	text-align: center;
+}
+
+.card__popupListContainer {
+	margin: 8px 0 0 8px;
+
+}
+
+.card__popupListItem::before {
+	content: "\025B8";
+	margin-right: 8px;
+}
+
+.card__popupTail {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	z-index: 110;
+	top: calc(100% - 4px);
+	left: 50%;
+	transform: translateX(-50%);
+	background-size: contain;
+}
+
+.card__cardWrapper {
+	width: 178px;
+	padding: 0 8px 0 8px;
+	border-radius: 8px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card__cardWrapper--isSelected {
+	box-shadow: none;
+	border: 3px solid #0C8CE9;
+}
+
+.card__category {
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--primaryColor);
+	text-align: center;
+	margin: 4px 0 0 0;
+
+}
+
+.card__thumbnailContainer {
+	width: 100%;
+	height: 100px;
+	margin-top: 4px;
+	border: 1px solid var(--secondaryColor);
+	border-radius: 8px;
+	overflow: hidden;
+	background-size: contain;
+}
+
+
+.card__title {
+	margin: 16px 0 0 8px;
+	padding: 0 8px 0 8px;
+	font-size: 1rem;
+	text-align: center;
+}
