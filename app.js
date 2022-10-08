@@ -1,8 +1,6 @@
 import { portfolioItems } from "./modules/portfolioItems.js";
 
-const sortPortfolioByDate = () => portfolioItems.sort((a, b) => b.date - a.date);
-
-const buildCardElements = () => {
+const buildCardElements = portfolioItem => {
   //div wrapper//
   const card = document.createElement("div");
   //popup//
@@ -17,7 +15,7 @@ const buildCardElements = () => {
   const card__popupGitIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
   const card__popupDescription = document.createElement("p");
   const card__popupListContainer = document.createElement("ul");
-  const card__popupListItem = document.createElement("li");
+  const card__popupListItems = portfolioItem.descriptionList.map(listItem => document.createElement("li"));
   const card__popupTail = document.createElement("div");
   //card body//
   const card__cardWrapper = document.createElement("section");
@@ -56,7 +54,9 @@ const buildCardElements = () => {
   card__popupGitLink.setAttribute("target", "_blank");
   card__popupDescription.classList.add("card__popupDescription");
   card__popupListContainer.classList.add("card__popupListContainer");
-  card__popupListItem.classList.add("card__popupListItem");
+  for (let item of card__popupListItems) {
+    item.classList.add("card__popupListItem")
+  }
   card__popupTail.classList.add("card__popupTail");
   card__cardWrapper.classList.add("card__cardWrapper");
   card__category.classList.add("card__category");
@@ -72,6 +72,9 @@ const buildCardElements = () => {
   card__popupIconLinksContainer.append(card__popupGitLink);
   card__popupWrapper.append(card__popupDescription);
   card__popupWrapper.append(card__popupListContainer);
+  for (let item of card__popupListItems){
+    card__popupListContainer.append(item);
+  };
   card__popupWrapper.append(card__popupTail);
   //card body
   card.append(card__cardWrapper);
@@ -89,6 +92,10 @@ const populateCard = (card, portfolioItem) => {
   card.querySelector(".card__popupWebsiteLink").href = portfolioItem.websiteLink;
   card.querySelector(".card__popupGitLink").href = portfolioItem.githubLink;
   card.querySelector(".card__popupDescription").innerText = portfolioItem.description;
+  const listItemsCollection = card.querySelector(".card__popupListContainer").children;
+  for (let i = 0; i < listItemsCollection.length; i++){
+    listItemsCollection[i].innerText = portfolioItem.descriptionList[i];
+  };
   //card body
   card.querySelector(".card__category").innerText = portfolioItem.category;
   card.querySelector(".card__thumbnailContainer").style.backgroundImage = portfolioItem.imageSrc;
@@ -98,7 +105,7 @@ const populateCard = (card, portfolioItem) => {
 }
 
 const assembleCard = portfolioItem => {
-  let assembledCard = buildCardElements();
+  let assembledCard = buildCardElements(portfolioItem);
   assembledCard = populateCard(assembledCard, portfolioItem);
   const popupWrapper = assembledCard.querySelector(".card__popupWrapper");
   const cardWrapper = assembledCard.querySelector(".card__cardWrapper");
@@ -115,7 +122,7 @@ const assembleCard = portfolioItem => {
 
 const addCardsToPage = () => {
   const landmarkMain = document.querySelector("main");
-  const sortedPortfolioItems = sortPortfolioByDate();
+  const sortedPortfolioItems = portfolioItems.sort((a, b) => b.date - a.date);
   for (let portfolioItem of sortedPortfolioItems) {
     const assembledCard = assembleCard(portfolioItem)
     landmarkMain.append(assembledCard);
