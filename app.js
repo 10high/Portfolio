@@ -1,9 +1,6 @@
+import { portfolioItems } from "./modules/portfolioItems.js";
 
-const sortCardsByDate = portfolioArr => portfolioArr.sort((a, b) => b.date - a.date);
-
-
-
-
+const sortPortfolioByDate = () => portfolioItems.sort((a, b) => b.date - a.date);
 
 const buildCardElements = () => {
   //div wrapper//
@@ -53,9 +50,6 @@ const buildCardElements = () => {
   return card;
 }
 
-
-
-
 //TODO: add SVGs, iterate list array on object to add list items.
 
 //<div class="card" tabindex="0">
@@ -89,44 +83,40 @@ const buildCardElements = () => {
 //     </section>
 //   </div>
 
-const testCardContent = {
-  "heading": "Fluid Typography Calculator",
-  "category": "Web App",
-  "date": 220900,
-  "imageSrc": "url(./images/portfolioThumbnails/FluidTypographyCalculator_548x480px.png)",
-  "websiteLink": "https://10high.github.io/Fluid-Typography-Calculator/",
-  "githubLink": "https://github.com/10high/Fluid-Typography-Calculator",
-  "description": "A personal project I use for building responsive pages.",
-  "descriptionList": ["Client-side JavaScript"]
-}
-
-const populateCard = (card, cardInfo) => {
+const populateCard = (card, portfolioItem) => {
   //popup
-  card.querySelector(".card__popupDescription").innerText = cardInfo.description;
+  card.querySelector(".card__popupDescription").innerText = portfolioItem.description;
   //card body
-  card.querySelector(".card__category").innerText = cardInfo.category;
-  card.querySelector(".card__thumbnailContainer").style.backgroundImage = cardInfo.imageSrc;
-  card.querySelector(".card__title").innerText = cardInfo.heading;
+  card.querySelector(".card__category").innerText = portfolioItem.category;
+  card.querySelector(".card__thumbnailContainer").style.backgroundImage = portfolioItem.imageSrc;
+  card.querySelector(".card__title").innerText = portfolioItem.heading;
 
   return card;
 }
 
-const addCardToPage = () => {
-  let card = buildCardElements();
-  card = populateCard(card, testCardContent);
-  const popupWrapper = card.querySelector(".card__popupWrapper");
-  const cardWrapper = card.querySelector(".card__cardWrapper");
-  card.addEventListener("focus", function () {
+const assembleCard = portfolioItem => {
+  let assembledCard = buildCardElements();
+  assembledCard = populateCard(assembledCard, portfolioItem);
+  const popupWrapper = assembledCard.querySelector(".card__popupWrapper");
+  const cardWrapper = assembledCard.querySelector(".card__cardWrapper");
+  assembledCard.addEventListener("focus", function () {
     popupWrapper.classList.add("card__popupWrapper--isSelected");
     cardWrapper.classList.add("card__cardWrapper--isSelected");
   });
-  card.addEventListener("blur", function () {
+  assembledCard.addEventListener("blur", function () {
     popupWrapper.classList.remove("card__popupWrapper--isSelected");
     cardWrapper.classList.remove("card__cardWrapper--isSelected");
   });
-
-  const mainLandmark = document.querySelector("main");
-  mainLandmark.append(card);
+  return assembledCard;
 }
 
-addCardToPage();
+const addCardsToPage = () => {
+  const landmarkMain = document.querySelector("main");
+  const sortedPortfolioItems = sortPortfolioByDate();
+  for (let portfolioItem of sortedPortfolioItems) {
+    const assembledCard = assembleCard(portfolioItem)
+    landmarkMain.append(assembledCard);
+  }
+}
+
+addCardsToPage();

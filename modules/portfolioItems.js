@@ -1,5 +1,5 @@
 
-const portfolioItems = [
+export const portfolioItems = [
     {
         "heading": "Fluid Typography Calculator",
         "category": "Web App",
