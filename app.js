@@ -1,3 +1,5 @@
+//TODO:
+
 import { portfolioItems } from "./modules/portfolioItems.js";
 
 const buildCardElements = portfolioItem => {
@@ -15,7 +17,7 @@ const buildCardElements = portfolioItem => {
   const card__popupGitIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
   const card__popupDescription = document.createElement("p");
   const card__popupListContainer = document.createElement("ul");
-  const card__popupListItems = portfolioItem.descriptionList.map(listItem => document.createElement("li"));
+  const card__popupListItems = portfolioItem.descriptionList.map(() => document.createElement("li"));
   const card__popupTail = document.createElement("div");
   //card body//
   const card__cardWrapper = document.createElement("section");
@@ -48,10 +50,14 @@ const buildCardElements = portfolioItem => {
   card.setAttribute("tabindex", 0);
   card__popupWrapper.classList.add("card__popupWrapper");
   card__popupIconLinksContainer.classList.add("card__popupIconLinksContainer");
-  card__popupWebsiteLink.classList.add("card__popupWebsiteLink");
+  card__popupWebsiteLink.setAttribute("id", "popupWebsiteLink");
+  card__popupWebsiteLink.classList.add("card__popupIconLink");
   card__popupWebsiteLink.setAttribute("target", "_blank");
-  card__popupGitLink.classList.add("card__popupGitLink");
+  card__popupWebsiteLink.setAttribute("title", "Open website");
+  card__popupGitLink.setAttribute("id", "popupGitLink");
+  card__popupGitLink.classList.add("card__popupIconLink");
   card__popupGitLink.setAttribute("target", "_blank");
+  card__popupGitLink.setAttribute("title", "Open Github repo");
   card__popupDescription.classList.add("card__popupDescription");
   card__popupListContainer.classList.add("card__popupListContainer");
   for (let item of card__popupListItems) {
@@ -72,7 +78,7 @@ const buildCardElements = portfolioItem => {
   card__popupIconLinksContainer.append(card__popupGitLink);
   card__popupWrapper.append(card__popupDescription);
   card__popupWrapper.append(card__popupListContainer);
-  for (let item of card__popupListItems){
+  for (let item of card__popupListItems) {
     card__popupListContainer.append(item);
   };
   card__popupWrapper.append(card__popupTail);
@@ -85,15 +91,13 @@ const buildCardElements = portfolioItem => {
   return card;
 }
 
-//TODO: iterate list array on object to add list items.
-
 const populateCard = (card, portfolioItem) => {
   //popup
-  card.querySelector(".card__popupWebsiteLink").href = portfolioItem.websiteLink;
-  card.querySelector(".card__popupGitLink").href = portfolioItem.githubLink;
+  card.querySelector("#popupWebsiteLink").href = portfolioItem.websiteLink;
+  card.querySelector("#popupGitLink").href = portfolioItem.githubLink;
   card.querySelector(".card__popupDescription").innerText = portfolioItem.description;
   const listItemsCollection = card.querySelector(".card__popupListContainer").children;
-  for (let i = 0; i < listItemsCollection.length; i++){
+  for (let i = 0; i < listItemsCollection.length; i++) {
     listItemsCollection[i].innerText = portfolioItem.descriptionList[i];
   };
   //card body
@@ -107,16 +111,12 @@ const populateCard = (card, portfolioItem) => {
 const assembleCard = portfolioItem => {
   let assembledCard = buildCardElements(portfolioItem);
   assembledCard = populateCard(assembledCard, portfolioItem);
-  const popupWrapper = assembledCard.querySelector(".card__popupWrapper");
-  const cardWrapper = assembledCard.querySelector(".card__cardWrapper");
+  const websiteIconLink = assembledCard.querySelector("#popupWebsiteLink")
+
   assembledCard.addEventListener("focus", function () {
-    popupWrapper.classList.add("card__popupWrapper--isSelected");
-    cardWrapper.classList.add("card__cardWrapper--isSelected");
+    websiteIconLink.focus();
   });
-  assembledCard.addEventListener("blur", function () {
-    popupWrapper.classList.remove("card__popupWrapper--isSelected");
-    cardWrapper.classList.remove("card__cardWrapper--isSelected");
-  });
+
   return assembledCard;
 }
 
