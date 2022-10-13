@@ -112,7 +112,7 @@ const assembleCard = portfolioItem => {
   let assembledCard = buildCardElements(portfolioItem);
   assembledCard = populateCard(assembledCard, portfolioItem);
   const websiteIconLink = assembledCard.querySelector("#popupWebsiteLink")
-
+//makes popup links tab accessible
   assembledCard.addEventListener("focus", function () {
     websiteIconLink.focus();
   });
@@ -121,11 +121,11 @@ const assembleCard = portfolioItem => {
 }
 
 const addCardsToPage = () => {
-  const landmarkMain = document.querySelector("main");
+  const cardContainer = document.querySelector("#cardContainer");
   const sortedPortfolioItems = portfolioItems.sort((a, b) => b.date - a.date);
   for (let portfolioItem of sortedPortfolioItems) {
     const assembledCard = assembleCard(portfolioItem)
-    landmarkMain.append(assembledCard);
+    cardContainer.append(assembledCard);
   }
 }
 
