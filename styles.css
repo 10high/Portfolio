@@ -277,6 +277,7 @@ main {
 	position: relative;
 	display: inline-block;
 	line-height: 1.4375;
+	height: max-content;
 }
 
 .card:focus-within>.card__popupWrapper {
