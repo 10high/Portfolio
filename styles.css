@@ -508,7 +508,8 @@ button:active {
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: flex-start;
-		margin: 0 0 0 auto;
+		margin: 0 0 0 0;
+		margin-left: 16.806%;
 	}
 
 	#bioDivider
@@ -519,7 +520,8 @@ button:active {
 	.bio {
 		width: 143px;
 		margin: 0 0 0 0;
-		margin-right: calc(16.806% - 143px);
+		margin-left: 16px;
+		
 		flex-direction: column;
 		align-items: center;
 		gap: 0;
