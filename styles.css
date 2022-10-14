@@ -130,6 +130,15 @@ table {
 	border-spacing: 0;
 }
 
+button {
+	background-color: initial;
+	border-style: none;
+}
+
+[hidden] {
+	display: none !important;
+}
+
 /* CSS Reset end */
 
 :root {
@@ -137,12 +146,19 @@ table {
 	--secondaryColor: #023859;
 }
 
-[hidden] {
-	display: none !important;
+.sr-only {
+	position: absolute;
+	margin: -1px;
+	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 body {
 	min-height: 100vh;
+	min-width: 100vw;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -151,7 +167,10 @@ body {
 }
 
 .pageWrapper {
-	width: 360px;
+	width: 100%;
+	min-width: 260px;
+	max-width: 1440px;
+	margin-bottom: 32px;
 }
 
 .navbar {
@@ -190,13 +209,18 @@ body {
 .header {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	margin-top: 24px;
+}
+
+.header__headingContainer {
+	display: flex;
+	flex-direction: column;
 }
 
 .header__heading {
 	font-size: 40px;
 	color: var(--primaryColor);
-	text-align: center;
 }
 
 .header__iconsWrapper {
@@ -206,14 +230,11 @@ body {
 	margin: 8px 0 0 0;
 }
 
-.header__icon {
-	height: 36px;
-	width: auto;
-}
+
 
 .header__buttonContainer {
-	width: 234px;
-	margin: 8px auto 0 auto;
+	width: 66.388%;
+	margin: 8px 0 0 0;
 }
 
 .header__button {
@@ -230,10 +251,11 @@ body {
 }
 
 .header__divider {
-	width: 234px;
+	width: 66.388%;
+	height: 0;
 	border: 2px solid #023859;
 	border-radius: 8px;
-	margin: 8px auto 0 auto;
+	margin: 8px 0 0 0;
 }
 
 main {
@@ -326,7 +348,7 @@ main {
 	border: 3px solid #0c8de900;
 	border-radius: 8px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-} 
+}
 
 .card__category {
 	font-size: 1rem;
@@ -371,9 +393,10 @@ main {
 
 .segmentDivider {
 	width: 80px;
+	height: 0;
 	border: 1px solid var(--secondaryColor);
 	border-radius: 8px;
-	margin: 16px 0 16px 0;
+	margin: 16px auto 16px auto;
 }
 
 .bio {
@@ -402,7 +425,108 @@ main {
 
 .footer {
 	width: 100%;
+	max-width: 1440px;
 	min-height: 56px;
 	background-color: #D9C7B8;
-	margin-top: 16px;
+	margin-top: auto;
+}
+
+button:active {
+	box-shadow: none;
+}
+
+@media (hover: hover) {
+	button {
+		cursor: pointer;
+	}
+
+	.navbar__iconLink:hover>svg {
+		filter: drop-shadow(0px 0px 10px #D9C7B8)
+	}
+
+	.card:hover {
+		cursor: pointer;
+		box-shadow: 0px 0px 16px 0px #D9C7B8;
+	}
+}
+
+@media (min-width: 700px) {
+	.card__container {
+		width: 66.388%;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+
+	.showMoreButton
+	 {
+		display: none;
+	}
+	
+	#bioDivider {
+		width: 60%;
+		margin: 32px 0 0 0;
+	}
+
+	.bio {
+		width: 60%;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 16px;
+		margin: 16px 0 0 0;
+	}
+
+	.bio__copyWrapper {
+		margin: 8px 0 0 0;
+	}
+
+}
+
+@media (min-width: 1000px) {
+	.navbar__name {
+		margin: 0 18px 0 auto;
+	}
+
+	.header__headingContainer {
+		flex-direction: row;
+	}
+
+	.header__heading {
+		margin: 0 16px 0 0;
+	}
+
+	main {
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: flex-start;
+		margin: 16px 0 0 0;
+		
+	}
+
+	.card__container {
+		width: 66.388%;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		margin: 0 0 0 auto;
+	}
+
+	#bioDivider
+	 {
+		display: none;
+	}
+
+	.bio {
+		width: 143px;
+		margin: 0 0 0 0;
+		margin-right: calc(16.806% - 143px);
+		flex-direction: column;
+		align-items: center;
+		gap: 0;
+	}
+
+	.bio__copyWrapper {
+		margin: 0 0 0 0;
+	}
+
 }

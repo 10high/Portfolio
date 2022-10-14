@@ -51,12 +51,16 @@
             </ul>
         </nav>
         <header class="header">
-            <h1 class="header__heading">Portfolio</h1>
-            <div class="header__iconsWrapper">
-                <img class="header__icon" src="./images/HTML5 Logo.svg" alt="HTML5 logo and wordmark">
-                <img class="header__icon" src="./images/CSS3_logo_and_wordmark.svg" alt="CSS logo and wordmark">
-                <img class="header__icon" src="./images/397px-Javascript-shield.svg.png"
-                    alt="JavaScript logo and wordmark">
+            <div class="header__headingContainer">
+                <h1 class="header__heading">Portfolio</h1>
+                <div class="header__iconsWrapper">
+                    <img class="header__icon" src="./images/HTML5 Logo.svg" alt="HTML5 logo and wordmark" width="36"
+                        height="36">
+                    <img class="header__icon" src="./images/CSS3_logo_and_wordmark.svg" alt="CSS logo and wordmark"
+                        width="25" height="36">
+                    <img class="header__icon" src="./images/397px-Javascript-shield.svg.png"
+                        alt="JavaScript logo and wordmark" width="25.52" height="36">
+                </div>
             </div>
             <div class="header__buttonContainer">
                 <button class="header__button" type="button">Most recent &DoubleDownArrow;</button>
@@ -66,21 +70,28 @@
         <main>
             <div id="cardContainer" class="card__container"></div>
             <button class="showMoreButton" type="button">SHOW MORE</button>
-            <div class="segmentDivider"></div>
+            <div id="bioDivider" class="segmentDivider"></div>
             <section class="bio">
                 <h2 class="sr-only">About Me</h2>
                 <img class="bio__profilePic" src="./images/MichaelWaaler.jpeg" alt="Profile picture of Michael Waaler"
                     width="140" height="140">
-                <p class="bio__copy">Fluent in <span class="boldText">English</span> and <span
-                        class="boldText">German</span>.</p>
-                <div class="segmentDivider"></div>
-                <p class="bio__copy">When not <span class="boldText">working</span> or <span class="boldText">learning</span>, I enjoy <span class="boldText">walking</span> my dog, <span class="boldText">exercising</span> at the local gym,
-                    <span class="boldText">playing</span> video games with my children, and <span class="boldText">spending time</span> with my family. I’m also a founding member
-                    of the <span class="boldText">Hamburg Film Club</span>, which is infamous for its annual Halloween movie marathons!</p>
+                <div class="bio__copyWrapper">
+                    <p class="bio__copy">Fluent in <span class="boldText">English</span> and <span
+                            class="boldText">German</span>.</p>
+                    <div class="segmentDivider"></div>
+                    <p class="bio__copy">When not <span class="boldText">working</span> or <span
+                            class="boldText">learning</span>, I enjoy <span class="boldText">walking</span> my dog,
+                        <span class="boldText">exercising</span> at the local gym,
+                        <span class="boldText">playing</span> video games with my children, and <span
+                            class="boldText">spending time</span> with my family. I’m also a founding member
+                        of the <span class="boldText">Hamburg Film Club</span>, which is infamous for its annual
+                        Halloween movie marathons!
+                    </p>
+                </div>
             </section>
         </main>
-        <footer class="footer"></footer>
     </div>
+    <footer class="footer"></footer>
 </body>
 
 </html>
