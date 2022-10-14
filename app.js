@@ -140,6 +140,7 @@ const toggleSortByRecent = () => {
   const sortButton = document.querySelector("#sortButton");
   const sortedPortfolioItems = [];
   sortButton.addEventListener("pointerdown", function () {
+    sortButton.innerText === "Most recent ⇑" ? sortButton.innerText = "Most recent ⇓" : sortButton.innerText = "Most recent ⇑";
     while (cardContainer.firstChild) {
       let removedChild = cardContainer.removeChild(cardContainer.lastChild);
       sortedPortfolioItems.push(removedChild);
