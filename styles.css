@@ -159,6 +159,7 @@ button {
 body {
 	min-height: 100vh;
 	min-width: 100vw;
+	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -174,6 +175,7 @@ body {
 }
 
 .navbar {
+	position: relative;
 	width: 100%;
 	height: 56px;
 	display: flex;
@@ -425,7 +427,6 @@ main {
 
 .footer {
 	width: 100%;
-	max-width: 1440px;
 	min-height: 56px;
 	background-color: #D9C7B8;
 	margin-top: auto;
@@ -458,11 +459,10 @@ button:active {
 		justify-content: flex-start;
 	}
 
-	.showMoreButton
-	 {
+	.showMoreButton {
 		display: none;
 	}
-	
+
 	#bioDivider {
 		width: 60%;
 		margin: 32px 0 0 0;
@@ -500,7 +500,7 @@ button:active {
 		flex-wrap: nowrap;
 		align-items: flex-start;
 		margin: 16px 0 0 0;
-		
+
 	}
 
 	.card__container {
@@ -512,8 +512,7 @@ button:active {
 		margin-left: 16.806%;
 	}
 
-	#bioDivider
-	 {
+	#bioDivider {
 		display: none;
 	}
 
@@ -521,7 +520,7 @@ button:active {
 		width: 143px;
 		margin: 0 0 0 0;
 		margin-left: 16px;
-		
+
 		flex-direction: column;
 		align-items: center;
 		gap: 0;
@@ -531,4 +530,24 @@ button:active {
 		margin: 0 0 0 0;
 	}
 
+}
+
+@media (min-width: 1440px) {
+	.navbar::before {
+		content: "";
+		height: 56px;
+		width: calc((100vw - 1440px) / 2);
+		background-color: var(--secondaryColor);
+		position: absolute;
+		right: 100%;
+	}
+
+	.navbar::after {
+		content: "";
+		height: 56px;
+		width: calc((100vw - 1440px) / 2);
+		background-color: var(--secondaryColor);
+		position: absolute;
+		left: 100%;
+	}
 }
