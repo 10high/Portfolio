@@ -112,7 +112,7 @@ const assembleCard = portfolioItem => {
   let assembledCard = buildCardElements(portfolioItem);
   assembledCard = populateCard(assembledCard, portfolioItem);
   const websiteIconLink = assembledCard.querySelector("#popupWebsiteLink")
-//makes popup links tab accessible
+  //makes popup links tab accessible
   assembledCard.addEventListener("focus", function () {
     websiteIconLink.focus();
   });
@@ -120,9 +120,13 @@ const assembleCard = portfolioItem => {
   return assembledCard;
 }
 
+const sortCardsByNewest = () => portfolioItems.sort((a, b) => b.date - a.date);
+
+const sortCardsByOldest = () => portfolioItems.sort((a, b) => b.date - a.date);
+
 const addCardsToPage = () => {
   const cardContainer = document.querySelector("#cardContainer");
-  const sortedPortfolioItems = portfolioItems.sort((a, b) => b.date - a.date);
+  const sortedPortfolioItems = sortCardsByNewest();
   for (let portfolioItem of sortedPortfolioItems) {
     const assembledCard = assembleCard(portfolioItem)
     cardContainer.append(assembledCard);
@@ -130,3 +134,20 @@ const addCardsToPage = () => {
 }
 
 addCardsToPage();
+
+const toggleSortByRecent = () => {
+  const cardContainer = document.querySelector("#cardContainer");
+  const sortButton = document.querySelector("#sortButton");
+  const sortedPortfolioItems = [];
+  sortButton.addEventListener("pointerdown", function () {
+    while (cardContainer.firstChild) {
+      let removedChild = cardContainer.removeChild(cardContainer.lastChild);
+      sortedPortfolioItems.push(removedChild);
+    }
+    for (let portfolioItem of sortedPortfolioItems) {
+      cardContainer.append(portfolioItem);
+    }
+  })
+}
+
+toggleSortByRecent();
