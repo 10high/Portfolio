@@ -120,35 +120,61 @@ const assembleCard = portfolioItem => {
   return assembledCard;
 }
 
-const sortCardsByNewest = () => portfolioItems.sort((a, b) => b.date - a.date);
-
-const sortCardsByOldest = () => portfolioItems.sort((a, b) => b.date - a.date);
-
-const addCardsToPage = () => {
-  const cardContainer = document.querySelector("#cardContainer");
-  const sortedPortfolioItems = sortCardsByNewest();
-  for (let portfolioItem of sortedPortfolioItems) {
-    const assembledCard = assembleCard(portfolioItem)
-    cardContainer.append(assembledCard);
+const cardManager = {
+  storedCards: [],
+  cardContainer: document.querySelector("#cardContainer"),
+  initialBuildStoreAdd() {
+    const sortedPortfolioItems = portfolioItems.sort((a, b) => b.date - a.date);
+    for (let portfolioItem of sortedPortfolioItems) {
+      this.storedCards.push(assembleCard(portfolioItem));
+    };
+    this.cardNumberManager();
+  },
+  cardNumberManager() {
+    window.matchMedia("(max-width: 699px)").match ?
+      this.addLimitedCardsToPage() :
+      this.addAllCardsToPage();
+  },
+  addAllCardsToPage() {
+    for (let card of this.storedCards) {
+      this.cardContainer.append(card);
+    }
+  },
+  addLimitedCardsToPage() {
+    console.log("sucess");
+    for (let i = 0; i < 3; i++) {
+      this.cardContainer.append(this.storedCards[i]);
+      console.log("sucess");
+    }
+  },
+  removeAllCardsFromPage() {
+    while (this.cardContainer.firstChild) {
+      this.cardContainer.removeChild(this.cardContainer.lastChild);
+    };
+  },
+  reverseStoredCards() {
+    this.storedCards.reverse();
   }
 }
 
-addCardsToPage();
-
 const toggleSortByRecent = () => {
-  const cardContainer = document.querySelector("#cardContainer");
   const sortButton = document.querySelector("#sortButton");
-  const sortedPortfolioItems = [];
   sortButton.addEventListener("pointerdown", function () {
-    sortButton.innerText === "Most recent ⇑" ? sortButton.innerText = "Most recent ⇓" : sortButton.innerText = "Most recent ⇑";
-    while (cardContainer.firstChild) {
-      let removedChild = cardContainer.removeChild(cardContainer.lastChild);
-      sortedPortfolioItems.push(removedChild);
-    }
-    for (let portfolioItem of sortedPortfolioItems) {
-      cardContainer.append(portfolioItem);
-    }
+    sortButton.innerText === "Most recent ⇑" ?
+      sortButton.innerText = "Most recent ⇓" :
+      sortButton.innerText = "Most recent ⇑";
+    cardManager.removeAllCardsFromPage();
+    cardManager.reverseStoredCards();
+    cardManager.cardNumberManager()
   })
 }
 
+
+cardManager.initialBuildStoreAdd();
 toggleSortByRecent();
+
+window.matchMedia("(max-width: 699px)").addEventListener("change", function(event) {
+  event.matches ? cardManager.addLimitedCardsToPage() : cardManager.addAllCardsToPage();
+});
+
+
