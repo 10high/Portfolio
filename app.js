@@ -141,10 +141,8 @@ const cardManager = {
     }
   },
   addLimitedCardsToPage() {
-    console.log("sucess");
     for (let i = 0; i < 3; i++) {
       this.cardContainer.append(this.storedCards[i]);
-      console.log("sucess");
     }
   },
   removeAllCardsFromPage() {
@@ -169,11 +167,19 @@ const toggleSortByRecent = () => {
   })
 }
 
+const showMore = () => {
+  const showMoreButton = document.querySelector("#showMoreButton");
+  showMoreButton.addEventListener("pointerdown", function () {
+    cardManager.addAllCardsToPage();
+    showMoreButton.setAttribute("hidden", "true");
+  })
+}
 
 cardManager.initialBuildStoreAdd();
 toggleSortByRecent();
+showMore();
 
-window.matchMedia("(max-width: 699px)").addEventListener("change", function(event) {
+window.matchMedia("(max-width: 699px)").addEventListener("change", function (event) {
   event.matches ? cardManager.addLimitedCardsToPage() : cardManager.addAllCardsToPage();
 });
 
