@@ -1,4 +1,4 @@
-//TODO:
+//TODO: add filter to hide content behind popups. Make Desktop PageWrapper scrollable. Add impressum etc 
 
 import { portfolioItems } from "./modules/portfolioItems.js";
 
@@ -183,4 +183,25 @@ window.matchMedia("(max-width: 699px)").addEventListener("change", function (eve
   event.matches ? cardManager.addLimitedCardsToPage() : cardManager.addAllCardsToPage();
 });
 
+const scrollManager = {
+  html: document.querySelector("HTML"),
+  lastScrollTop: 0,
+  navbar: document.querySelector("#navbar"),
+  header: document.querySelector("#header"),
+  detectScrollDirection() {
+    if (document.querySelector("HTML").scrollTop > this.lastScrollTop) {
+      document.querySelector("#navbar").classList.add("navbar--animated");
+    } else {
+      document.querySelector("#navbar").classList.remove("navbar--animated");
+    }
+    this.lastScrollTop = document.querySelector("HTML").scrollTop;
+  }
+}
 
+
+const test = () => {
+  console.log(document.querySelector("HTML"));
+}
+
+
+document.addEventListener("scroll", scrollManager.detectScrollDirection);

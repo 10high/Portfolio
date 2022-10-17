@@ -174,7 +174,11 @@ body {
 }
 
 .navbar {
-	position: relative;
+	position: sticky;
+	top: 0;
+	transition: top 0.25s ease-in-out;
+	z-index: 200;
+
 	width: 100%;
 	height: 56px;
 	display: flex;
@@ -182,6 +186,11 @@ body {
 	align-items: center;
 	color: white;
 	background-color: var(--secondaryColor);
+}
+
+
+.navbar--animated {
+	top: -56px;
 }
 
 .navbar__name {
@@ -212,12 +221,13 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 24px;
+	background-color: white;
 }
 
 .header__headingContainer {
 	display: flex;
 	flex-direction: column;
+	margin-top: 24px;
 }
 
 .header__heading {
@@ -297,7 +307,7 @@ main {
 .card__popupWrapper {
 	visibility: hidden;
 	position: absolute;
-	z-index: 100;
+	z-index: 150;
 	bottom: calc(100% + 8px);
 	left: 50%;
 	transform: translateX(-50%) scaleY(70%);
@@ -454,6 +464,10 @@ button:active {
 }
 
 @media (min-width: 700px) {
+	.navbar {
+		position: relative;
+	}
+	
 	.card__container {
 		width: 66.388%;
 		flex-direction: row;
