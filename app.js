@@ -175,7 +175,7 @@ const showMore = () => {
   const showMoreButton = document.querySelector("#showMoreButton");
   showMoreButton.addEventListener("pointerdown", function () {
     cardManager.removeAllCardsFromPage(),
-    cardManager.addAllCardsToPage();
+      cardManager.addAllCardsToPage();
     cardManager.showMore = true;
     showMoreButton.setAttribute("hidden", "true");
   })
@@ -183,16 +183,13 @@ const showMore = () => {
 
 const scrollManager = {
   html: document.querySelector("HTML"),
-  lastScrollTop: 0,
   navbar: document.querySelector("#navbar"),
-  header: document.querySelector("#header"),
+  lastScrollTop: 0,
   detectScrollDirection() {
-    if (document.querySelector("HTML").scrollTop > this.lastScrollTop) {
-      document.querySelector("#navbar").classList.add("navbar--animated");
-    } else {
-      document.querySelector("#navbar").classList.remove("navbar--animated");
-    }
-    this.lastScrollTop = document.querySelector("HTML").scrollTop;
+    this.html.scrollTop > this.lastScrollTop ?
+      this.navbar.classList.add("navbar--animated") :
+      this.navbar.classList.remove("navbar--animated");
+    this.lastScrollTop = this.html.scrollTop;
   }
 }
 
