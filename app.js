@@ -1,4 +1,4 @@
-//TODO: add filter to hide content behind popups. Make Desktop PageWrapper scrollable. Add impressum etc 
+//TODO: Make Desktop PageWrapper scrollable. Add impressum etc 
 
 import { portfolioItems } from "./modules/portfolioItems.js";
 

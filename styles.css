@@ -289,6 +289,7 @@ main {
 	display: inline-block;
 	line-height: 1.4375;
 	height: max-content;
+	border-radius: 8px;
 }
 
 .card:focus-within>.card__popupWrapper {
@@ -309,20 +310,20 @@ main {
 
 .card__popupWrapper {
 	visibility: hidden;
+	width: 240px;
 	position: absolute;
 	z-index: 150;
 	bottom: calc(100% + 8px);
 	left: 50%;
 	transform: translateX(-50%) scaleY(70%);
-	width: 240px;
 	background-color: #D9D9D9;
 	border-radius: 8px;
-	padding: 8px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	opacity: 0;
 	transition-property: transform, opacity;
 	transition-timing-function: ease-in-out;
 	transition-duration: 0.25s;
+	padding: 8px;
 }
 
 .card__popupBlur {
@@ -342,14 +343,12 @@ main {
 	color: var(--primaryColor);
 }
 
-.card__popupDescription {
-	margin-top: 8px;
+.card__popupDescription {	
 	text-align: center;
 }
 
 .card__popupListContainer {
 	margin: 8px 0 0 8px;
-
 }
 
 .card__popupListItem::before {
