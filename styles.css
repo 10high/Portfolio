@@ -187,7 +187,6 @@ body {
 	background-color: var(--secondaryColor);
 }
 
-
 .navbar--animated {
 	top: -56px;
 }
@@ -280,10 +279,6 @@ main {
 	margin: 16px 0 0 0;
 }
 
-.card__container--sortByOldest {
-	flex-direction: column-reverse;
-}
-
 .card {
 	position: relative;
 	display: inline-block;
@@ -331,7 +326,7 @@ main {
 	position: relative;
 	z-index: 50;
 	width: 200px;
-	box-shadow: 0px -140px 31px 100px rgb(255, 255, 255, 0.9);
+	box-shadow: 0px -135px 17px 35px rgb(255, 255, 255, 0.9), 0px -200px 17px 35px rgb(255, 255, 255, 0.9);
 }
 
 .card__popupIconLinksContainer {
@@ -478,6 +473,10 @@ button:active {
 		position: relative;
 		z-index: 100;
 	}
+
+	.navbar--animated {
+		top: 0;
+	}
 	
 	.card__container {
 		width: 66.388%;
@@ -510,7 +509,7 @@ button:active {
 
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1000px) {		
 	.navbar__name {
 		margin: 0 18px 0 auto;
 	}
@@ -528,7 +527,6 @@ button:active {
 		flex-wrap: nowrap;
 		align-items: flex-start;
 		margin: 16px 0 0 0;
-
 	}
 
 	.card__container {

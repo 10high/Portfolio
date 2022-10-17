@@ -1,4 +1,4 @@
-//TODO: Make Desktop PageWrapper scrollable. Add impressum etc 
+//TODO: Add impressum etc 
 
 import { portfolioItems } from "./modules/portfolioItems.js";
 
@@ -48,7 +48,7 @@ const buildCardElements = portfolioItem => {
   card__popupTail.style.backgroundImage = "url(./images/popupTail.svg)"
 
   card.classList.add("card");
-  card.setAttribute("tabindex", 0);  
+  card.setAttribute("tabindex", 0);
   card__popupWrapper.classList.add("card__popupWrapper");
   card__popupBlur.classList.add("card__popupBlur");
   card__popupIconLinksContainer.classList.add("card__popupIconLinksContainer");
@@ -126,6 +126,7 @@ const assembleCard = portfolioItem => {
 const cardManager = {
   storedCards: [],
   cardContainer: document.querySelector("#cardContainer"),
+  showMore: false,
   initialBuildStoreAdd() {
     const sortedPortfolioItems = portfolioItems.sort((a, b) => b.date - a.date);
     for (let portfolioItem of sortedPortfolioItems) {
@@ -134,7 +135,7 @@ const cardManager = {
     this.cardNumberManager();
   },
   cardNumberManager() {
-    window.matchMedia("(max-width: 699px)").match ?
+    window.innerWidth <= 699 && !this.showMore ?
       this.addLimitedCardsToPage() :
       this.addAllCardsToPage();
   },
@@ -173,7 +174,9 @@ const toggleSortByRecent = () => {
 const showMore = () => {
   const showMoreButton = document.querySelector("#showMoreButton");
   showMoreButton.addEventListener("pointerdown", function () {
+    cardManager.removeAllCardsFromPage(),
     cardManager.addAllCardsToPage();
+    cardManager.showMore = true;
     showMoreButton.setAttribute("hidden", "true");
   })
 }
@@ -197,6 +200,7 @@ cardManager.initialBuildStoreAdd();
 toggleSortByRecent();
 showMore();
 window.matchMedia("(max-width: 699px)").addEventListener("change", function (event) {
-  event.matches ? cardManager.addLimitedCardsToPage() : cardManager.addAllCardsToPage();
+  cardManager.removeAllCardsFromPage();
+  cardManager.cardNumberManager();
 });
 document.addEventListener("scroll", scrollManager.detectScrollDirection);
