@@ -7,6 +7,7 @@ const buildCardElements = portfolioItem => {
   const card = document.createElement("div");
   //popup//
   const card__popupWrapper = document.createElement("div");
+  const card__popupBlur = document.createElement("div");
   const card__popupIconLinksContainer = document.createElement("div");
   const card__popupWebsiteLink = document.createElement("a");
   const card__popupWebsiteIconSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -47,8 +48,9 @@ const buildCardElements = portfolioItem => {
   card__popupTail.style.backgroundImage = "url(./images/popupTail.svg)"
 
   card.classList.add("card");
-  card.setAttribute("tabindex", 0);
+  card.setAttribute("tabindex", 0);  
   card__popupWrapper.classList.add("card__popupWrapper");
+  card__popupBlur.classList.add("card__popupBlur");
   card__popupIconLinksContainer.classList.add("card__popupIconLinksContainer");
   card__popupWebsiteLink.setAttribute("id", "popupWebsiteLink");
   card__popupWebsiteLink.classList.add("card__popupIconLink");
@@ -72,6 +74,7 @@ const buildCardElements = portfolioItem => {
   //structure card elements
   //div wrapper
   card.append(card__popupWrapper);
+  card.append(card__popupBlur);
   //popup
   card__popupWrapper.append(card__popupIconLinksContainer);
   card__popupIconLinksContainer.append(card__popupWebsiteLink);
@@ -175,14 +178,6 @@ const showMore = () => {
   })
 }
 
-cardManager.initialBuildStoreAdd();
-toggleSortByRecent();
-showMore();
-
-window.matchMedia("(max-width: 699px)").addEventListener("change", function (event) {
-  event.matches ? cardManager.addLimitedCardsToPage() : cardManager.addAllCardsToPage();
-});
-
 const scrollManager = {
   html: document.querySelector("HTML"),
   lastScrollTop: 0,
@@ -198,4 +193,10 @@ const scrollManager = {
   }
 }
 
+cardManager.initialBuildStoreAdd();
+toggleSortByRecent();
+showMore();
+window.matchMedia("(max-width: 699px)").addEventListener("change", function (event) {
+  event.matches ? cardManager.addLimitedCardsToPage() : cardManager.addAllCardsToPage();
+});
 document.addEventListener("scroll", scrollManager.detectScrollDirection);
