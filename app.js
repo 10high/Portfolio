@@ -198,10 +198,4 @@ const scrollManager = {
   }
 }
 
-
-const test = () => {
-  console.log(document.querySelector("HTML"));
-}
-
-
 document.addEventListener("scroll", scrollManager.detectScrollDirection);
