@@ -1,6 +1,6 @@
-//TODO: Add impressum etc 
+//TODO: Add impressum etc, dynamically add head meta data 
 
-import { portfolioItems } from "./modules/portfolioItems.js";
+import { portfolioItems } from "../modules/portfolioItems.js";
 
 const buildCardElements = portfolioItem => {
   //div wrapper//
@@ -181,15 +181,18 @@ const showMore = () => {
   })
 }
 
+const domElements = {
+  scrollWindow: document.querySelector("HTML"),
+  navbar: document.querySelector("#navbar")
+}
+
 const scrollManager = {
-  html: document.querySelector("HTML"),
-  navbar: document.querySelector("#navbar"),
   lastScrollTop: 0,
   detectScrollDirection() {
-    this.html.scrollTop > this.lastScrollTop ?
-      this.navbar.classList.add("navbar--animated") :
-      this.navbar.classList.remove("navbar--animated");
-    this.lastScrollTop = this.html.scrollTop;
+    domElements.scrollWindow.scrollTop > this.lastScrollTop ?
+      domElements.navbar.classList.add("navbar--animated") :
+      domElements.navbar.classList.remove("navbar--animated");
+    this.lastScrollTop = domElements.scrollWindow.scrollTop;
   }
 }
 
@@ -200,4 +203,4 @@ window.matchMedia("(max-width: 699px)").addEventListener("change", function (eve
   cardManager.removeAllCardsFromPage();
   cardManager.cardNumberManager();
 });
-document.addEventListener("scroll", scrollManager.detectScrollDirection);
+window.addEventListener("scroll", scrollManager.detectScrollDirection);
