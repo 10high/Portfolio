@@ -1,4 +1,4 @@
-//TODO: Add impressum etc, dynamically add head meta data 
+//TODO: add head meta data 
 
 import { portfolioItems } from "../modules/portfolioItems.js";
 
@@ -210,7 +210,7 @@ const storeReturnURL = () => {
   for (link of legalLinksArr) {
     link.addEventListener("pointerdown", function () {
       if (!sessionStorage.getItem("returnURL")) {
-        sessionStorage.setItem("returnURL");
+        sessionStorage.setItem("returnURL", "https://www.flyingtens.com/Portfolio/index.html");
       }
     })
   }
