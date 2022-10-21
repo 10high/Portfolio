@@ -1,7 +1,11 @@
-
 :root {
 	--primaryColor: #010440;
 	--secondaryColor: #023859;
+}
+
+html {
+	font-family: 'Jost', sans-serif;
+	font-size: 16px;
 }
 
 .sr-only {
@@ -21,7 +25,10 @@ body {
 	flex-direction: column;
 	align-items: center;
 	line-height: 1;
-	font-family: 'Jost', sans-serif;
+}
+
+button:active {
+	box-shadow: none;
 }
 
 .pageWrapper {
@@ -196,7 +203,7 @@ main {
 	color: var(--primaryColor);
 }
 
-.card__popupDescription {	
+.card__popupDescription {
 	text-align: center;
 }
 
@@ -304,12 +311,23 @@ main {
 .footer {
 	width: 100%;
 	min-height: 56px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: #D9C7B8;
 	margin-top: auto;
 }
 
-button:active {
-	box-shadow: none;
+.footer__linksWrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.footer__legalLink {
+	font-size: clamp(0.75rem, 0.37037037037037035vw + 0.6666666666666666rem, 1rem);
+	color: var(--primaryColor);
 }
 
 @media (hover: hover) {
@@ -324,6 +342,11 @@ button:active {
 	.card:hover {
 		box-shadow: 0px 0px 16px 0px #D9C7B8;
 	}
+
+	.footer__legalLink:hover {
+		color: black;
+		text-decoration-thickness: 2px;
+	} 
 }
 
 @media (min-width: 700px) {
@@ -335,12 +358,12 @@ button:active {
 	.navbar--animated {
 		top: 0;
 	}
-	
+
 	.card__container {
 		width: 66.388%;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content:flex-start;
+		justify-content: flex-start;
 		padding: 0 0 16px 0;
 	}
 
@@ -365,9 +388,12 @@ button:active {
 		margin: 8px 0 0 0;
 	}
 
+	.footer__linksWrapper {
+		width: 66.388%;
+	}
 }
 
-@media (min-width: 1000px) {		
+@media (min-width: 1000px) {
 	.navbar__name {
 		margin: 0 18px 0 auto;
 	}

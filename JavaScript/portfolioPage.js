@@ -204,3 +204,15 @@ window.matchMedia("(max-width: 699px)").addEventListener("change", function (eve
   cardManager.cardNumberManager();
 });
 window.addEventListener("scroll", scrollManager.detectScrollDirection);
+
+const storeReturnURL = () => {
+  const legalLinksArr = document.querySelectorAll(".footer__legalLink");
+  for (link of legalLinksArr) {
+    link.addEventListener("pointerdown", function () {
+      if (!sessionStorage.getItem("returnURL")) {
+        sessionStorage.setItem("returnURL");
+      }
+    })
+  }
+}
+storeReturnURL(); 
