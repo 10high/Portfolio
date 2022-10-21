@@ -199,7 +199,7 @@ const scrollManager = {
 cardManager.initialBuildStoreAdd();
 toggleSortByRecent();
 showMore();
-window.matchMedia("(max-width: 699px)").addEventListener("change", function (event) {
+window.matchMedia("(max-width: 699px)").addEventListener("change", function () {
   cardManager.removeAllCardsFromPage();
   cardManager.cardNumberManager();
 });
@@ -207,7 +207,7 @@ window.addEventListener("scroll", scrollManager.detectScrollDirection);
 
 const storeReturnURL = () => {
   const legalLinksArr = document.querySelectorAll(".footer__legalLink");
-  for (link of legalLinksArr) {
+  for (let link of legalLinksArr) {
     link.addEventListener("pointerdown", function () {
       if (!sessionStorage.getItem("returnURL")) {
         sessionStorage.setItem("returnURL", "https://www.flyingtens.com/Portfolio/index.html");
