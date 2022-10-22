@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- 
+    <!-- 
     <link rel="preload" as="font" type="font/woff2" href="../Fonts/Jost/jost-v14-latin-regular.woff2" crossorigin>
 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./CSS/common.css">
     <link rel="stylesheet" href="./CSS/portfolioPage.css">
@@ -24,8 +24,9 @@
             <p class="navbar__name">Michael Waaler</p>
             <button id="aboutMeButton" type="button" title="About me">
                 <div class="navbar__logo navbar__iconLink">
-                    <img id="logo1" src="./images/10high1.png" alt="">
-                    <img id="logo2" src="./images/10high2.png" alt="">
+                    <img id="logo1" src="./images/10high1.png" alt="" width="32" height="32">
+                    <img id="logo2" src="./images/10high2.png" alt="" width="32" height="32">
+                    <img id="sayHi" src="./images/Say hi.svg" alt="" width="118" height="39">
                 </div>
             </button>
             <ul class="navbar__iconsWrapper">
@@ -80,20 +81,25 @@
         <article id="bioMobile" class="bio bio__mobile">
             <h2 class="sr-only">About Me</h2>
             <img class="bio__profilePic" src="./images/MichaelWaaler.jpeg" alt="Profile picture of Michael Waaler"
-                width="140" height="140">
+                width="120" height="120">
             <div class="bio__copyWrapper">
                 <p class="bio__copy">
-                    Hi! I'm Michael. I speak HTML, CSS, and JavaScript. I'm also fluent in English and German. 
+                    <span class="boldText">Hi, I'm Michael!</span> I speak <span class="boldText">HTML, CSS,</span> and <span class="boldText">JavaScript.</span> I'm also fluent in <span class="boldText">English</span> and <span class="boldText">German.</span>
                 </p>
-                <p class="bio__copy">Please also check out my LinkedIn profile for more details about my work history and education. My CV is available to download here.</p>
+                <p class="bio__copy">Check out my <span class="boldText">LinkedIn</span> profile for more details on my <span class="boldText">work history</span> and <span class="boldText">education.</span> My
+                    <span class="boldText">CV</span> is available to <a href="">download here</a>.</p>
                 <p class="bio__copy">When I'm not <span class="boldText">working</span> or <span
-                    class="boldText">learning</span>, I enjoy <span class="boldText">walking</span> my dog,
-                <span class="boldText">exercising</span> at the local gym,
-                <span class="boldText">playing</span> video games with my children, and <span
-                    class="boldText">spending time</span> with my family. I&prime;m also a founding member
-                of the <span class="boldText">Hamburg Film Club</span>, which is infamous for its annual
-                Halloween movie marathons!
-            </p>
+                        class="boldText">learning</span>, I enjoy <span class="boldText">walking</span> my dog,
+                    <span class="boldText">exercising</span> at the local gym,
+                    <span class="boldText">playing</span> video games with my children, and <span
+                        class="boldText">spending time</span> with my family.
+                </p>
+                <p class="bio__copy">
+                    I&prime;m also a founding member
+                    of the <span class="boldText">Hamburg Film Club</span>, which is infamous for its annual
+                    Halloween movie marathons!
+                </p>
+
             </div>
         </article>
         <main>

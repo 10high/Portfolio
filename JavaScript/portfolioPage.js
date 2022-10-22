@@ -221,9 +221,11 @@ const animatebioMobile = () => {
  const navbar = document.querySelector("#navbar"); 
  const aboutMeButton = document.querySelector("#aboutMeButton");
  const bioMobile = document.querySelector("#bioMobile");
+ const sayHi = document.querySelector("#sayHi");
  aboutMeButton.addEventListener("pointerdown", function(){
   bioMobile.style.top = `${navbar.offsetTop + 72}px`;
   bioMobile.classList.toggle("bio__mobile--animate");
+  sayHi.classList.toggle("sayHi--hidden");
  });
 }
 animatebioMobile();
