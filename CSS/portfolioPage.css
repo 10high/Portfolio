@@ -284,6 +284,34 @@ main {
 	margin: 16px auto 16px auto;
 }
 
+#bioMobile {
+	position: absolute;
+	left: 50%;
+	z-index: 175;
+	background-color: #D9C7B8;
+	padding: 8px;
+	border-radius: 8px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #c2ad9c;
+	transition-property: transform, opacity, visibility;
+	transition-timing-function: ease-in-out;
+	transition-duration: 0.25s;
+}
+
+.bio__mobile {
+	visibility: hidden;
+	opacity: 0;
+	top: 0;
+	transform: translateX(-50%) translateY(-100%);
+}
+
+.bio__mobile--animate {
+	visibility: visible;
+	opacity: 1;
+	transform: translateX(-50%) translateY(0%);
+}
+
 .bio {
 	width: 240px;
 	display: flex;
@@ -294,7 +322,6 @@ main {
 .bio__profilePic {
 	border: 3px solid #618C78;
 	border-radius: 8px;
-	margin: 0 0 16px 0;
 }
 
 .bio__copy {
@@ -302,6 +329,7 @@ main {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.445;
+	margin: 8px 0 8px 0;
 }
 
 .boldText {
@@ -335,18 +363,20 @@ main {
 		cursor: pointer;
 	}
 
-	.navbar__iconLink:hover>svg {
+	.navbar__iconLink:hover>svg,
+	.navbar__iconLink:hover>img {
 		filter: drop-shadow(0px 0px 10px #D9C7B8)
 	}
 
 	.card:hover {
 		box-shadow: 0px 0px 16px 0px #D9C7B8;
+		cursor: pointer;
 	}
 
 	.footer__legalLink:hover {
 		color: black;
 		text-decoration-thickness: 2px;
-	} 
+	}
 }
 
 @media (min-width: 700px) {

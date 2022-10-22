@@ -215,4 +215,15 @@ const storeReturnURL = () => {
     })
   }
 }
-storeReturnURL(); 
+storeReturnURL();
+
+const animatebioMobile = () => {
+ const navbar = document.querySelector("#navbar"); 
+ const aboutMeButton = document.querySelector("#aboutMeButton");
+ const bioMobile = document.querySelector("#bioMobile");
+ aboutMeButton.addEventListener("pointerdown", function(){
+  bioMobile.style.top = `${navbar.offsetTop + 72}px`;
+  bioMobile.classList.toggle("bio__mobile--animate");
+ });
+}
+animatebioMobile();
