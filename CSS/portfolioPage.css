@@ -595,16 +595,19 @@ main {
 
 @keyframes bounce {
 	from {
-		transform: scaleY(70%);
+		transform-origin: bottom right;
+		transform: rotateZ(0deg);
 	}
 
 	50% {
-		transform: scaleY(110%);
+		transform-origin: bottom right;
+		transform: rotateZ(10deg);
 
 	}
 
 	to {
-		transform: scaleY(100%);
+		transform-origin: bottom right;
+		transform: rotateZ(0deg);
 
 	}
 }

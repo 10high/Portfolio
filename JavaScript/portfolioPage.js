@@ -229,6 +229,14 @@ const bioMobileManager = {
   }
 }
 
+const animateBioPicBigScreen = () => {
+  const bioPic = document.querySelector("#bioPicDesktop");
+  bioPic.classList.add("bio__profilePic--animate");
+  setTimeout(()=>{
+    bioPic.classList.remove("bio__profilePic--animate");
+  }, 500);
+}
+
 const eventListenerManager = {
   aboutMeButton: document.querySelector("#aboutMeButton"),
   bioCloseButton: document.querySelector("#bioCloseButton"),
@@ -240,6 +248,7 @@ const eventListenerManager = {
     this.bioCloseButton.addEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
     window.addEventListener("scroll", scrollManager.detectScrollDirection);
     this.showMoreButton.addEventListener("pointerdown", showMore);
+    this.aboutMeButton.removeEventListener("pointerdown", animateBioPicBigScreen);
   },
   bigScreen() {
     cardManager.removeAllCardsFromPage();
@@ -249,6 +258,7 @@ const eventListenerManager = {
     this.bioCloseButton.removeEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
     window.removeEventListener("scroll", scrollManager.detectScrollDirection);
     this.showMoreButton.removeEventListener("pointerdown", showMore);
+    this.aboutMeButton.addEventListener("pointerdown", animateBioPicBigScreen);
   }
 }
 
