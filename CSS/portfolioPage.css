@@ -147,6 +147,20 @@ button:active {
 	align-items: center;
 }
 
+.bio__closeButton {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	height: 24px;
+	font-family: 'Jost', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--primaryColor);
+	border: 1px solid #E1E1E1;
+	border-radius: 8px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .bio__profilePic {
 	border: 3px solid #618C78;
 	border-radius: 8px;
@@ -157,7 +171,7 @@ button:active {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.445;
-	margin: 8px 0 8px 0;
+	margin: 4px 0 4px 0;
 }
 
 #bioMobile {

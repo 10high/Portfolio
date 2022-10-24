@@ -1,4 +1,6 @@
-//TODO: add head meta data 
+//TODO: add head meta data, add close X to mobile bio, 
+//add entries, add bio info dynamically, organize modules
+//add animation effect to bio pic desktop
 
 import { portfolioItems } from "../modules/portfolioItems.js";
 
@@ -181,29 +183,23 @@ const showMore = () => {
   })
 }
 
-const domElements = {
-  scrollWindow: document.querySelector("HTML"),
-  navbar: document.querySelector("#navbar")
-}
-
 const scrollManager = {
+  scrollWindow: document.querySelector("HTML"),
+  navbar: document.querySelector("#navbar"),
   lastScrollTop: 0,
   detectScrollDirection() {
-    domElements.scrollWindow.scrollTop > this.lastScrollTop ?
-      domElements.navbar.classList.add("navbar--animated") :
-      domElements.navbar.classList.remove("navbar--animated");
-    this.lastScrollTop = domElements.scrollWindow.scrollTop;
+    scrollManager.scrollWindow.scrollTop > this.lastScrollTop ?
+    scrollManager.navbar.classList.add("navbar--animated") :
+    scrollManager.navbar.classList.remove("navbar--animated");
+    this.lastScrollTop = scrollManager.scrollWindow.scrollTop;
   }
 }
+window.addEventListener("scroll", scrollManager.detectScrollDirection);
 
 cardManager.initialBuildStoreAdd();
 toggleSortByRecent();
 showMore();
-window.matchMedia("(max-width: 699px)").addEventListener("change", function () {
-  cardManager.removeAllCardsFromPage();
-  cardManager.cardNumberManager();
-});
-window.addEventListener("scroll", scrollManager.detectScrollDirection);
+
 
 const storeReturnURL = () => {
   const legalLinksArr = document.querySelectorAll(".footer__legalLink");
@@ -217,17 +213,45 @@ const storeReturnURL = () => {
 }
 storeReturnURL();
 
-const animatebioMobile = () => {
- const navbar = document.querySelector("#navbar"); 
- const aboutMeButton = document.querySelector("#aboutMeButton");
- const bioMobile = document.querySelector("#bioMobile");
- const sayHi = document.querySelector("#sayHi");
- aboutMeButton.addEventListener("pointerdown", function(){
-  if (window.matchMedia("(max-width: 699px)").matches){
-  bioMobile.style.top = `${navbar.offsetTop + 72}px`;
-  bioMobile.classList.toggle("bio__mobile--animate");
-  sayHi.classList.toggle("sayHi--hidden");
+const bioMobileManager = {
+  navbar: document.querySelector("#navbar"),
+  aboutMeButton: document.querySelector("#aboutMeButton"),
+  bioMobile: document.querySelector("#bioMobile"),
+  sayHi: document.querySelector("#sayHi"),
+  bioCloseButton: document.querySelector("#bioCloseButton"),
+  bioMobileIsOpen: false,
+  openBioMobile() {
+      this.bioMobile.style.top = `${navbar.offsetTop + 72}px`;
+      this.bioMobile.classList.add("bio__mobile--animate");
+      this.sayHi.classList.add("sayHi--hidden");
+      this.bioMobileIsOpen = true;
+      console.log("open " + this.bioMobileIsOpen);
+  },
+  closeBioMobile() {
+    this.bioMobile.classList.remove("bio__mobile--animate");
+    this.sayHi.classList.remove("sayHi--hidden");
+    this.bioMobileIsOpen = false;
+    console.log("close " + this.bioMobileIsOpen);
+  },
+  manageBioMobileButtons(){
+    if (window.matchMedia("(max-width: 699px)").matches){
+      bioMobileManager.bioMobileIsOpen ? 
+        bioMobileManager.closeBioMobile() : 
+        bioMobileManager.openBioMobile();
+      };
+    }, 
+  manageBioMobileScreenChange(){
+    if (this.bioMobileIsOpen && !window.matchMedia("(max-width: 699px)").matches){
+      this.closeBioMobile();
+    }
+  }
 }
- });
-}
-animatebioMobile();
+
+window.matchMedia("(max-width: 699px)").addEventListener("change", function () {
+  cardManager.removeAllCardsFromPage();
+  cardManager.cardNumberManager();
+  bioMobileManager.manageBioMobileScreenChange();
+});
+
+document.querySelector("#aboutMeButton").addEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
+document.querySelector("#bioCloseButton").addEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
