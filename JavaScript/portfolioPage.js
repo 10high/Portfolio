@@ -1,4 +1,4 @@
-//TODO: add head meta data, add close X to mobile bio, 
+//TODO: add head meta data, 
 //add entries, add bio info dynamically, organize modules
 //add animation effect to bio pic desktop
 
@@ -136,8 +136,8 @@ const cardManager = {
     };
     this.cardNumberManager();
   },
-  cardNumberManager() {
-    window.innerWidth <= 699 && !this.showMore ?
+  cardNumberManager(matchesSmall = window.matchMedia("(max-width: 699px)").matches) {
+    matchesSmall && !this.showMore ?
       this.addLimitedCardsToPage() :
       this.addAllCardsToPage();
   },
@@ -160,27 +160,24 @@ const cardManager = {
     this.storedCards.reverse();
   }
 }
+cardManager.initialBuildStoreAdd();
 
-const toggleSortByRecent = () => {
-  const sortButton = document.querySelector("#sortButton");
-  sortButton.addEventListener("pointerdown", function () {
-    sortButton.innerText === "Most recent ⇑" ?
-      sortButton.innerText = "Most recent ⇓" :
-      sortButton.innerText = "Most recent ⇑";
-    cardManager.removeAllCardsFromPage();
-    cardManager.reverseStoredCards();
-    cardManager.cardNumberManager()
-  })
+const toggleSortByRecent = (event) => {
+  const sortButton = event.target;
+  sortButton.innerText === "Most recent ⇑" ?
+    sortButton.innerText = "Most recent ⇓" :
+    sortButton.innerText = "Most recent ⇑";
+  cardManager.removeAllCardsFromPage();
+  cardManager.reverseStoredCards();
+  cardManager.cardNumberManager();
 }
 
-const showMore = () => {
-  const showMoreButton = document.querySelector("#showMoreButton");
-  showMoreButton.addEventListener("pointerdown", function () {
-    cardManager.removeAllCardsFromPage(),
-      cardManager.addAllCardsToPage();
-    cardManager.showMore = true;
-    showMoreButton.setAttribute("hidden", "true");
-  })
+const showMore = (event) => {
+  const showMoreButton = event.target;
+  cardManager.removeAllCardsFromPage(),
+    cardManager.addAllCardsToPage();
+  cardManager.showMore = true;
+  showMoreButton.setAttribute("hidden", "true");
 }
 
 const scrollManager = {
@@ -189,17 +186,11 @@ const scrollManager = {
   lastScrollTop: 0,
   detectScrollDirection() {
     scrollManager.scrollWindow.scrollTop > this.lastScrollTop ?
-    scrollManager.navbar.classList.add("navbar--animated") :
-    scrollManager.navbar.classList.remove("navbar--animated");
+      scrollManager.navbar.classList.add("navbar--animated") :
+      scrollManager.navbar.classList.remove("navbar--animated");
     this.lastScrollTop = scrollManager.scrollWindow.scrollTop;
   }
 }
-window.addEventListener("scroll", scrollManager.detectScrollDirection);
-
-cardManager.initialBuildStoreAdd();
-toggleSortByRecent();
-showMore();
-
 
 const storeReturnURL = () => {
   const legalLinksArr = document.querySelectorAll(".footer__legalLink");
@@ -221,37 +212,61 @@ const bioMobileManager = {
   bioCloseButton: document.querySelector("#bioCloseButton"),
   bioMobileIsOpen: false,
   openBioMobile() {
-      this.bioMobile.style.top = `${navbar.offsetTop + 72}px`;
-      this.bioMobile.classList.add("bio__mobile--animate");
-      this.sayHi.classList.add("sayHi--hidden");
-      this.bioMobileIsOpen = true;
-      console.log("open " + this.bioMobileIsOpen);
+    this.bioMobile.style.top = `${navbar.offsetTop + 72}px`;
+    this.bioMobile.classList.add("bio__mobile--animate");
+    this.sayHi.classList.add("sayHi--hidden");
+    this.bioMobileIsOpen = true;
   },
   closeBioMobile() {
     this.bioMobile.classList.remove("bio__mobile--animate");
     this.sayHi.classList.remove("sayHi--hidden");
     this.bioMobileIsOpen = false;
-    console.log("close " + this.bioMobileIsOpen);
   },
-  manageBioMobileButtons(){
-    if (window.matchMedia("(max-width: 699px)").matches){
-      bioMobileManager.bioMobileIsOpen ? 
-        bioMobileManager.closeBioMobile() : 
-        bioMobileManager.openBioMobile();
-      };
-    }, 
-  manageBioMobileScreenChange(){
-    if (this.bioMobileIsOpen && !window.matchMedia("(max-width: 699px)").matches){
-      this.closeBioMobile();
-    }
+  manageBioMobileButtons() {
+    bioMobileManager.bioMobileIsOpen ?
+      bioMobileManager.closeBioMobile() :
+      bioMobileManager.openBioMobile();
   }
 }
 
-window.matchMedia("(max-width: 699px)").addEventListener("change", function () {
-  cardManager.removeAllCardsFromPage();
-  cardManager.cardNumberManager();
-  bioMobileManager.manageBioMobileScreenChange();
-});
+const eventListenerManager = {
+  aboutMeButton: document.querySelector("#aboutMeButton"),
+  bioCloseButton: document.querySelector("#bioCloseButton"),
+  showMoreButton: document.querySelector("#showMoreButton"),
+  smallScreen() {
+    cardManager.removeAllCardsFromPage();
+    cardManager.cardNumberManager(true);
+    this.aboutMeButton.addEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
+    this.bioCloseButton.addEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
+    window.addEventListener("scroll", scrollManager.detectScrollDirection);
+    this.showMoreButton.addEventListener("pointerdown", showMore);
+  },
+  bigScreen() {
+    cardManager.removeAllCardsFromPage();
+    cardManager.cardNumberManager(false);
+    bioMobileManager.closeBioMobile();
+    this.aboutMeButton.removeEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
+    this.bioCloseButton.removeEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
+    window.removeEventListener("scroll", scrollManager.detectScrollDirection);
+    this.showMoreButton.removeEventListener("pointerdown", showMore);
+  }
+}
 
-document.querySelector("#aboutMeButton").addEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
-document.querySelector("#bioCloseButton").addEventListener("pointerdown", bioMobileManager.manageBioMobileButtons);
+
+const addInitialEventListeners = () => {
+  document.querySelector("#sortButton").addEventListener("pointerdown", toggleSortByRecent);
+  if (window.matchMedia("(max-width: 699px)").matches) {
+    eventListenerManager.smallScreen();
+  } else {
+    eventListenerManager.bigScreen();
+  }
+}
+addInitialEventListeners();
+
+window.matchMedia("(max-width: 699px)").addEventListener("change", function () {
+  if (window.matchMedia("(max-width: 699px)").matches) {
+    eventListenerManager.smallScreen();
+  } else {
+    eventListenerManager.bigScreen();
+  }
+});

@@ -447,7 +447,7 @@ main {
 
 	.bio {
 		width: 60%;
-		max-width: 640px;	
+		max-width: 640px;
 		margin: 16px auto 0 auto;
 	}
 
@@ -456,8 +456,15 @@ main {
 		margin: 0 8px 0 0;
 	}
 
+	.bio__profilePic--animate {
+		animation-name: bounce;
+		animation-duration: 0.5s;
+		animation-timing-function:ease-in-out;
+		animation-iteration-count: 1;
+	}
+
 	.bio__copy {
-		width:auto;
+		width: auto;
 		margin: 4px 0 0 0;
 	}
 
@@ -508,7 +515,7 @@ main {
 	}
 
 	.bio__profilePic {
-		float:none;
+		float: none;
 		margin: 0 0 0 8px;
 	}
 }
@@ -583,5 +590,21 @@ main {
 
 	to {
 		opacity: 1;
+	}
+}
+
+@keyframes bounce {
+	from {
+		transform: scaleY(70%);
+	}
+
+	50% {
+		transform: scaleY(110%);
+
+	}
+
+	to {
+		transform: scaleY(100%);
+
 	}
 }
