@@ -2,7 +2,9 @@
 //add entries, add bio info dynamically, organize modules
 //add animation effect to bio pic desktop
 
+import { buildBioCopy } from "../modules/bioCopy.js";
 import { portfolioItems } from "../modules/portfolioItems.js";
+
 
 const buildCardElements = portfolioItem => {
   //div wrapper//
@@ -232,7 +234,7 @@ const bioMobileManager = {
 const animateBioPicBigScreen = () => {
   const bioPic = document.querySelector("#bioPicDesktop");
   bioPic.classList.add("bio__profilePic--animate");
-  setTimeout(()=>{
+  setTimeout(() => {
     bioPic.classList.remove("bio__profilePic--animate");
   }, 500);
 }
@@ -280,3 +282,5 @@ window.matchMedia("(max-width: 699px)").addEventListener("change", function () {
     eventListenerManager.bigScreen();
   }
 });
+
+buildBioCopy.insertCopy();
