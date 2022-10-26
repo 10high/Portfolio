@@ -1,0 +1,146 @@
+.bio {
+	width: 240px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.bio__closeButton {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	height: 24px;
+	font-family: 'Jost', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--primaryColor);
+	border: 1px solid #E1E1E1;
+	border-radius: 8px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bio__profilePic {
+	border: 3px solid #618C78;
+	border-radius: 8px;
+}
+
+.bio__copy {
+	width: 100%;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.445;
+	margin: 4px 0 4px 0;
+}
+
+#bioMobile {
+	position: absolute;
+	left: 50%;
+	z-index: 175;
+	background-color: white;
+	padding: 8px;
+	border-radius: 8px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--secondaryColor);
+	transition-property: transform, opacity, visibility;
+	transition-timing-function: ease-in;
+	transition-duration: 0.25s;
+	box-shadow: 0px 135px 17px 35px rgb(255, 255, 255, 0.9), 0px -200px 17px 35px rgb(255, 255, 255, 0.9);
+}
+
+.bio__mobile {
+	visibility: hidden;
+	opacity: 0;
+	top: 0;
+	transform: translateX(-50%) translateY(-100%);
+}
+
+.bio__mobile--animate {
+	visibility: visible;
+	opacity: 1;
+	transform: translateX(-50%) translateY(0%);
+}
+
+.bio__desktop {
+	display: none;
+}
+
+@media (min-width: 700px) {
+    #bioMobile {
+		display: none;
+	}
+
+    #bioDivider {
+		width: 60%;
+		margin: 32px 0 0 0;
+	}
+
+	.bio__desktop {
+		display: initial;
+	}
+
+	.bio {
+		width: 60%;
+		max-width: 640px;
+		margin: 16px auto 0 auto;
+	}
+
+	.bio__profilePic {
+		float: left;
+		margin: 0 8px 0 0;
+	}
+
+	.bio__profilePic--animate {
+		animation-name: bounce;
+		animation-duration: 0.5s;
+		animation-timing-function:ease-in-out;
+		animation-iteration-count: 1;
+	}
+
+	.bio__copy {
+		width: auto;
+		margin: 4px 0 0 0;
+	}
+}
+
+@media (min-width: 1440px) {
+    #bioDivider {
+		display: none;
+	}
+
+    .bio__desktop {
+		display: flex;
+	}
+
+	.bio {
+		width: 240px;
+		margin: 0 8px 0 8px;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0;
+	}
+
+	.bio__profilePic {
+		float: none;
+		margin: 0 0 0 8px;
+	}
+}
+
+@keyframes bounce {
+	from {
+		transform-origin: bottom right;
+		transform: rotateZ(0deg);
+	}
+
+	50% {
+		transform-origin: bottom right;
+		transform: rotateZ(10deg);
+
+	}
+
+	to {
+		transform-origin: bottom right;
+		transform: rotateZ(0deg);
+
+	}
+}
