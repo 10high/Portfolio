@@ -1,5 +1,5 @@
 //TODO: add head meta data, 
-//add entries, organize modules
+//add entries, bio bold bug
 
 
 import * as myUIElements from "../modules/uiElements.js";

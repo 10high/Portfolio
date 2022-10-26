@@ -11,7 +11,7 @@ export const buildBioCopy = {
     When I'm not *working* or *learning*, I enjoy *walking* my dog, *exercising* at the local gym, *playing* video games with my children, and *spending time* with my family.
     I'm also a founding member of the *Hamburg Film Club*, which is infamous for its annual Halloween movie marathons!`,
     formatCopy(){
-        this.copy = this.copy.replace(/(\*.*\*)/gm, `<span class="boldText">$1</span>`);
+        this.copy = this.copy.replace(/(\*.*?\*)/gm, `<span class="boldText">$1</span>`);
         this.copy = this.copy.replace(/\*/gm, ""); 
         return this.copy = this.copy.replace(/(^.*$)/gm, `<p class="bio__copy">$1</p>`);
     },
