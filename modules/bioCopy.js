@@ -1,6 +1,9 @@
 export const buildBioCopy = {
     profilePic: `<img class="bio__profilePic" src="./images/MichaelWaaler.jpeg" alt="Profile picture of Michael Waaler"
     width="120" height="120">`,
+    profilePicDesktop(){
+        return this.profilePic.replace(/<img/, `<img id="bioPicDesktop"`);
+    },
     copy: `*Hi, I'm Michael!*
     I speak *HTML, CSS,* and *JavaScript.*
     I'm also fluent in *English* and *German.*
@@ -16,11 +19,12 @@ export const buildBioCopy = {
        const bios = ["#bioDesktop", "#bioMobile"];
        const formattedCopy = this.formatCopy(); 
         for (let bio of bios){
-            const insertPosition = document.querySelector(bio);
+            let insertPosition = document.querySelector(bio);
+            bio === "#bioDesktop" ?
+            insertPosition.insertAdjacentHTML("beforeend", this.profilePicDesktop()) :    
             insertPosition.insertAdjacentHTML("beforeend", this.profilePic);
             insertPosition.insertAdjacentHTML("beforeend", formattedCopy);    
-        }
-        
+        } 
     }
 }
-
+buildBioCopy.insertCopy();
