@@ -1,5 +1,5 @@
 //TODO: add head meta data, 
-//add entries, bio bold bug
+//add entries,
 
 
 import * as myUIElements from "../modules/uiElements.js";
@@ -16,7 +16,7 @@ const addInitialEventListeners = () => {
   } else {
     eventListenerManager.bigScreen();
   }
-}; 
+};
 addInitialEventListeners();
 
 window.matchMedia("(max-width: 699px)").addEventListener("change", function () {

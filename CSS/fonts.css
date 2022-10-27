@@ -1,0 +1,25 @@
+/* jost-regular - latin */
+
+
+@font-face {
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local(''),
+		 url('../../Fonts/Jost/jost-v14-latin-regular.woff2') format('woff2'), 
+		 url('../../Fonts/Jost/jost-v14-latin-regular.woff') format('woff'); 
+  } 
+  
+  
+  /* jost-700 - latin */
+ 
+  @font-face {
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local(''),
+		 url('../../Fonts/Jost/jost-v14-latin-700.woff2') format('woff2'), 
+		 url('../../Fonts/Jost/jost-v14-latin-700.woff') format('woff'); 
+  }
