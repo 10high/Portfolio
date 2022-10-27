@@ -48,6 +48,6 @@ export const portfolioItems = [
         "websiteLink": "#",
         "githubLink": "https://github.com/10high/Portfolio",
         "description": "This portfolio page!",
-        "descriptionList": ["Object-oriented (Factory Functions)", "Dynamic JavaScript", "RegEx content formatting", "Modular structure", "BEM naming convention"]
+        "descriptionList": ["Factory functions", "Dynamic JavaScript", "RegEx content formatting", "Modular structure", "BEM naming convention"]
     }
 ]
