@@ -1,5 +1,5 @@
-//TODO: add head meta data, 
-//add entries,
+//TODO: Gulp? 
+// Download CV link
 
 
 import * as myUIElements from "../modules/uiElements.js";

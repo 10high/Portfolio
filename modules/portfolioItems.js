@@ -18,7 +18,7 @@ export const portfolioItems = [
         "websiteLink": "https://www.praxisbergerhoff.de/",
         "githubLink": "https://github.com/10high/BergerhoffWebsite",
         "description": "The website for a local doctor's practice.",
-        "descriptionList": []
+        "descriptionList": ["Mobile: Flexbox, Desktop: Grid"]
     },
     {
         "heading": "Cult Manager Tycoon",
@@ -29,5 +29,25 @@ export const portfolioItems = [
         "githubLink": "",
         "description": "A mobile game for Android. Originally published on Play Store, now archived on itch.io.",
         "descriptionList": ["Made with Unity & Playmaker"]
+    },
+    {
+        "heading": "Pod Request Landing Page",
+        "category": "Challenge",
+        "date": 220800,
+        "imageSrc": "url(./images/portfolioThumbnails/PodRequestLandingPage.png)",
+        "websiteLink": "https://10high.github.io/FrontendMentorPodRequest/",
+        "githubLink": "https://github.com/10high/FrontendMentorPodRequest",
+        "description": "A Frontend Mentor challenge with basic JS form error handling",
+        "descriptionList": ["BEM naming convention", "Pixel perfect", "Fully responsive"]
+    },
+    {
+        "heading": "Portfolio Page",
+        "category": "Website",
+        "date": 221000,
+        "imageSrc": "url(./images/portfolioThumbnails/PortfolioPage.png)",
+        "websiteLink": "#",
+        "githubLink": "https://github.com/10high/Portfolio",
+        "description": "This portfolio page!",
+        "descriptionList": ["Object-oriented (Factory Functions)", "Dynamic JavaScript", "RegEx content formatting", "Modular structure", "BEM naming convention"]
     }
 ]
