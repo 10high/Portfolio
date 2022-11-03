@@ -1,4 +1,4 @@
-@import url(./fonts.css);
+/* @import url(./fonts.css); */
 @import url(./common.css);
 @import url(./navbar.css);
 @import url(./header.css);
@@ -9,6 +9,7 @@
 :root {
 	--primaryColor: #010440;
 	--secondaryColor: #023859;
+	--popupWrapperTopClearance: 0;
 }
 
 html {

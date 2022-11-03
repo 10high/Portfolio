@@ -1,5 +1,5 @@
-//TODO: Gulp? 
-// Download CV link
+//TODO: Task runners - mediaqueries/autoprefixer 
+
 
 
 import * as myUIElements from "../modules/uiElements.js";
@@ -11,6 +11,7 @@ storeReturnURL("https://www.flyingtens.com/Portfolio/index.html");
 
 const addInitialEventListeners = () => {
   document.querySelector("#sortButton").addEventListener("pointerdown", myUIElements.toggleSortByRecent);
+  myUIElements.popupAboveClearance();
   if (window.matchMedia("(max-width: 699px)").matches) {
     eventListenerManager.smallScreen();
   } else {
