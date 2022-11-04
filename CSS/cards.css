@@ -148,6 +148,10 @@
 		cursor: pointer;
 	}
 
+	.card:focus-within:hover {
+		cursor: default;
+	}
+
 }
 
 @media (min-width: 700px) {
