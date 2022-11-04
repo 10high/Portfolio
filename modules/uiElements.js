@@ -33,9 +33,11 @@ const scrollManager = {
 const popupAboveClearance = () => {
   const allCardWrappersArr = document.querySelectorAll(".card");
   const navbar = document.querySelector("#navbar");
+  const sayHi = document.querySelector("#sayHi");
   for (let card of allCardWrappersArr) {
     const cardPopupWrapper = card.querySelector(".card__popupWrapper");
     card.addEventListener("focus", function () {
+      sayHi.classList.add("sayHi--hidden");
       setTimeout(() => {
         const navbarBottom = navbar.getBoundingClientRect().bottom;
         const topClearance = cardPopupWrapper.getBoundingClientRect().top;
@@ -50,6 +52,7 @@ const popupAboveClearance = () => {
       let currentVisibility = computedStyles.getPropertyValue("visibility");
       if (currentVisibility === "hidden") {
         card.classList.remove("card--clearTop");
+        sayHi.classList.remove("sayHi--hidden");
       }
     })
   }
