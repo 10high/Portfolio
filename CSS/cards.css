@@ -77,15 +77,22 @@
 
 .card__popupDescription {
 	text-align: center;
+	line-height: 1.1;
 }
 
 .card__popupListContainer {
-	margin: 8px 0 0 8px;
+	margin: 8px 8px 0 8px;
+}
+
+.card__popupListItem {
+	margin: 0 0 0 8px;
 }
 
 .card__popupListItem::before {
+	position: absolute;
+	left: 8px;
 	content: "\025B8";
-	margin-right: 8px;
+
 }
 
 .card__popupTail {
