@@ -7,8 +7,8 @@ export const portfolioItems = [
         "imageSrc": "url(./images/portfolioThumbnails/FluidTypographyCalculator_548x480px.webp)",
         "websiteLink": "https://10high.github.io/Fluid-Typography-Calculator/",
         "githubLink": "https://github.com/10high/Fluid-Typography-Calculator",
-        "description": "A personal project I use for building responsive pages.",
-        "descriptionList": ["Client-side JavaScript"]
+        "description": "A personal project I use for building responsive pages with clamp()",
+        "descriptionList": ["Strict form input handling", "BEM"]
     },
     {
         "heading": "Dr. Bergerhof",
@@ -18,7 +18,7 @@ export const portfolioItems = [
         "websiteLink": "https://www.praxisbergerhoff.de/",
         "githubLink": "https://github.com/10high/BergerhoffWebsite",
         "description": "The website for a local doctor's practice.",
-        "descriptionList": ["Mobile: Flexbox, Desktop: Grid"]
+        "descriptionList": ["Basic CSS animations", "Distinct mobile/desktop implementations with grid & flexbox"]
     },
     {
         "heading": "Cult Manager Tycoon",
@@ -37,8 +37,8 @@ export const portfolioItems = [
         "imageSrc": "url(./images/portfolioThumbnails/PodRequestLandingPage.webp)",
         "websiteLink": "https://10high.github.io/FrontendMentorPodRequest/",
         "githubLink": "https://github.com/10high/FrontendMentorPodRequest",
-        "description": "A Frontend Mentor challenge with basic JS form error handling",
-        "descriptionList": ["BEM naming convention", "Pixel perfect", "Fully responsive"]
+        "description": "A Frontend Mentor challenge.",
+        "descriptionList": ["Basic JS form error handling", "Pixel perfect", "BEM"]
     },
     {
         "heading": "Portfolio Page",
@@ -48,6 +48,6 @@ export const portfolioItems = [
         "websiteLink": "#",
         "githubLink": "https://github.com/10high/Portfolio",
         "description": "This portfolio page!",
-        "descriptionList": ["Factory functions", "Dynamic JavaScript", "RegEx content formatting", "Modular structure", "BEM naming convention"]
+        "descriptionList": ["Factory functions", "Dynamic JavaScript", "RegEx content formatting", "Modular structure", "PostCSS / BEM"]
     }
 ]
