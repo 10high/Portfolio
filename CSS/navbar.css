@@ -53,7 +53,7 @@
 
 	.navbar__iconLink:hover>svg,
 	.navbar__iconLink:hover>img {
-		filter: drop-shadow(0px 0px 10px #D9C7B8)
+		filter: drop-shadow(0px 0px 10px #D9C7B8);
 	}
 }
 
