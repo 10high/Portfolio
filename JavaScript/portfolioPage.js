@@ -1,6 +1,3 @@
-//TODO: Task runners - mediaqueries/autoprefixer 
-
-
 
 import * as myUIElements from "../modules/uiElements.js";
 import { eventListenerManager } from "../modules/eventListenerManager.js";

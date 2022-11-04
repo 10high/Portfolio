@@ -1,5 +1,5 @@
 export const buildBioCopy = {
-    profilePic: `<img class="bio__profilePic" src="./images/MichaelWaaler.jpeg" alt="Profile picture of Michael Waaler"
+    profilePic: `<img class="bio__profilePic" src="./images/MichaelWaaler.webp" alt="Profile picture of Michael Waaler"
     width="120" height="120">`,
     profilePicDesktop() {
         return this.profilePic.replace(/<img/, `<img id="bioPicDesktop"`);
