@@ -45,7 +45,7 @@ main {
 
 .showMoreButton {
 	font-family: 'Jost', sans-serif;
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	color: white;
