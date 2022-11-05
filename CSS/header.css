@@ -41,6 +41,16 @@
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.header__button--downArrow::after {
+	content: "\21D3";
+	padding-left: 8px;
+}
+
+.header__button--upArrow::after {
+	content: "\21D1";
+	padding-left: 8px;
+}
+
 .header__divider {
 	width: 66.388%;
 	height: 0;

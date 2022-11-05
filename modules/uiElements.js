@@ -1,10 +1,8 @@
 import { cardManager } from "./cardManager.js";
 
 const toggleSortByRecent = (event) => {
-  const sortButton = event.target;
-  sortButton.innerText === "Most recent ⇑" ?
-    sortButton.innerText = "Most recent ⇓" :
-    sortButton.innerText = "Most recent ⇑";
+  event.target.classList.toggle("header__button--downArrow");
+  event.target.classList.toggle("header__button--upArrow");
   cardManager.removeAllCardsFromPage();
   cardManager.reverseStoredCards();
   cardManager.cardNumberManager();
