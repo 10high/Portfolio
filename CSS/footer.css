@@ -1,4 +1,6 @@
 .footer {
+	position: relative;
+	z-index: 200;
 	width: 100%;
 	min-height: 56px;
 	display: flex;
@@ -21,14 +23,14 @@
 }
 
 @media (hover: hover) {
-    .footer__legalLink:hover {
+	.footer__legalLink:hover {
 		color: black;
 		text-decoration-thickness: 2px;
 	}
 }
 
 @media (min-width: 700px) {
-    .footer__linksWrapper {
+	.footer__linksWrapper {
 		width: 66.388%;
 	}
 }
