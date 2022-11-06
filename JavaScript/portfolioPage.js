@@ -8,7 +8,7 @@ storeReturnURL("https://www.flyingtens.com/Portfolio/index.html");
 
 const addInitialEventListeners = () => {
   document.querySelector("#sortButton").addEventListener("pointerdown", myUIElements.toggleSortByRecent);
-  myUIElements.popupAboveClearance();
+  myUIElements.popupOverheadClearanceManager.manageOverheadAllCards();
   if (window.matchMedia("(max-width: 699px)").matches) {
     eventListenerManager.smallScreen();
   } else {

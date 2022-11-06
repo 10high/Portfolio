@@ -28,32 +28,36 @@ const scrollManager = {
   }
 }
 
-const popupAboveClearance = () => {
-  const allCardWrappersArr = document.querySelectorAll(".card");
-  const navbar = document.querySelector("#navbar");
-  const sayHi = document.querySelector("#sayHi");
-  for (let card of allCardWrappersArr) {
-    const cardPopupWrapper = card.querySelector(".card__popupWrapper");
-    card.addEventListener("focus", function () {
-      sayHi.classList.add("sayHi--hidden");
-      setTimeout(() => {
-        const navbarBottom = navbar.getBoundingClientRect().bottom;
-        const topClearance = cardPopupWrapper.getBoundingClientRect().top;
-        if (topClearance < navbarBottom) {
-          document.documentElement.style.setProperty("--popupWrapperTopClearance", `${(navbarBottom - topClearance) + 16}px`);
-          card.classList.add("card--clearTop");
-        }
-      }, 200)
-    });
-    card.addEventListener("transitionend", function () {
-      let computedStyles = window.getComputedStyle(cardPopupWrapper);
-      let currentVisibility = computedStyles.getPropertyValue("visibility");
-      if (currentVisibility === "hidden") {
-        card.classList.remove("card--clearTop");
-        sayHi.classList.remove("sayHi--hidden");
+const popupOverheadClearanceManager = {
+  navbar: document.querySelector("#navbar"),
+  sayHi: document.querySelector("#sayHi"),
+  clearOverheadOnOpen(event) {
+    let card = event.currentTarget;
+    setTimeout(() => {
+      const navbarBottom = popupOverheadClearanceManager.navbar.getBoundingClientRect().bottom;
+      const topClearance = card.popupWrapper.getBoundingClientRect().top;
+      popupOverheadClearanceManager.sayHi.classList.add("sayHi--hidden");
+      if (topClearance < navbarBottom) {
+        document.documentElement.style.setProperty("--popupWrapperTopClearance", `${(navbarBottom - topClearance) + 16}px`);
+        card.classList.add("card--clearTop");
       }
-    })
+    }, 200)
+  },
+  resetOnClose(event) {
+    let cardPopupWrapper = event.currentTarget.popupWrapper;
+    let computedStyles = window.getComputedStyle(cardPopupWrapper);
+    let currentVisibility = computedStyles.getPropertyValue("visibility");
+    if (currentVisibility === "hidden") {
+      event.currentTarget.classList.remove("card--clearTop");
+    };
+  },
+  manageOverheadAllCards() {
+    for (let card of cardManager.storedCards) {
+      card.popupWrapper = card.querySelector(".card__popupWrapper");
+      card.addEventListener("focus", this.clearOverheadOnOpen);
+      card.addEventListener("transitionend", this.resetOnClose);
+    }
   }
 }
 
-export { toggleSortByRecent, showMore, scrollManager, popupAboveClearance };
+export { toggleSortByRecent, showMore, scrollManager, popupOverheadClearanceManager };
