@@ -31,6 +31,12 @@ const scrollManager = {
 const popupOverheadClearanceManager = {
   navbar: document.querySelector("#navbar"),
   sayHi: document.querySelector("#sayHi"),
+  isNotVisible(card) {
+    const computedStyles = window.getComputedStyle(card.popupWrapper);
+    const currentVisibility = computedStyles.getPropertyValue("visibility");
+    console.log(currentVisibility);
+    return currentVisibility !== "visible";
+  },
   clearOverheadOnOpen(event) {
     let card = event.currentTarget;
     setTimeout(() => {
@@ -49,6 +55,9 @@ const popupOverheadClearanceManager = {
     let currentVisibility = computedStyles.getPropertyValue("visibility");
     if (currentVisibility === "hidden") {
       event.currentTarget.classList.remove("card--clearTop");
+      if (cardManager.storedCards.every(popupOverheadClearanceManager.isNotVisible)) {
+        popupOverheadClearanceManager.sayHi.classList.remove("sayHi--hidden");
+      };
     };
   },
   manageOverheadAllCards() {
