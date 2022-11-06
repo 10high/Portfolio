@@ -32,6 +32,10 @@
 	margin: 4px 0 4px 0;
 }
 
+.bio__link {
+	color: var(--primaryColor);
+}
+
 #bioMobile {
 	position: absolute;
 	left: 50%;
@@ -63,6 +67,12 @@
 
 .bio__desktop {
 	display: none;
+}
+
+@media (hover: hover) {
+	.bio__link:hover {
+		text-decoration-thickness: 2px;
+	}
 }
 
 @media (min-width: 700px) {

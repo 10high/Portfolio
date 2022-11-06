@@ -7,12 +7,13 @@ export const buildBioCopy = {
     copy: `*Hi, I'm Michael!*
     I speak *HTML, CSS,* and *JavaScript.*
     I'm also fluent in *English* and *German.*
-    Check out my *LinkedIn* profile for more details on my *work history* and *education.*
+    Check out my <link=https://www.linkedin.com/in/michael-waaler-55854717/urlend>*LinkedIn*</link> profile for more details on my *work history* and *education.*
     When I'm not *working* or *learning*, I enjoy *walking* my dog, *exercising* at the local gym, *playing* video games with my children, and *spending time* with my family.
     I'm also a founding member of the *Hamburg Film Club*, which is infamous for its annual Halloween movie marathons!`,
     formatCopy() {
         this.copy = this.copy.replace(/(\*.*?\*)/gm, `<span class="boldText">$1</span>`);
         this.copy = this.copy.replace(/\*/gm, "");
+        this.copy = this.copy.replace(/(<link=)(.+)(urlend>)(.+)(<\/link>)/gm, `<a class="bio__link" href="$2" target="_blank" rel="noopener">$4</a>`);
         return this.copy = this.copy.replace(/(^.*$)/gm, `<p class="bio__copy">$1</p>`);
     },
     insertCopy() {
@@ -28,3 +29,8 @@ export const buildBioCopy = {
     }
 }
 buildBioCopy.insertCopy();
+
+/* FORMATTING
+Use *blah* for bold 
+use <link="URL"urlend>"link content"</link> for links
+*/

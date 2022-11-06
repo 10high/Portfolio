@@ -34,7 +34,6 @@ const popupOverheadClearanceManager = {
   isNotVisible(card) {
     const computedStyles = window.getComputedStyle(card.popupWrapper);
     const currentVisibility = computedStyles.getPropertyValue("visibility");
-    console.log(currentVisibility);
     return currentVisibility !== "visible";
   },
   clearOverheadOnOpen(event) {
