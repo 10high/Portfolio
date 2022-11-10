@@ -18,8 +18,8 @@
 }
 
 .card--clearTop {
-	transform: translateY(var(--popupWrapperTopClearance));
 	z-index: 160;
+	transform: translateY(var(--popupWrapperTopClearance));
 }
 
 .card:focus-within>.card__popupWrapper {

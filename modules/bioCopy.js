@@ -8,6 +8,7 @@ export const buildBioCopy = {
     I speak *HTML, CSS,* and *JavaScript.*
     I'm also fluent in *English* and *German.*
     Check out my <link=https://www.linkedin.com/in/michael-waaler-55854717/urlend>*LinkedIn*</link> profile for more details on my *work history* and *education.*
+    You can also *download* my CV <link=../documents/MichaelWaaler_CV_resume.pdfurlend>*here.*</link>
     When I'm not *working* or *learning*, I enjoy *walking* my dog, *exercising* at the local gym, *playing* video games with my children, and *spending time* with my family.
     I'm also a founding member of the *Hamburg Film Club*, which is infamous for its annual Halloween movie marathons!`,
     formatCopy() {
