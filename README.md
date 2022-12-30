@@ -11,7 +11,7 @@
 
 ### Design preview
 
-- ![The original design that I worked from](./Portfolio Page.png)
+- ![The original design that I worked from](./PortfolioPage.png)
 
 ## My process
 
