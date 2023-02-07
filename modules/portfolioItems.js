@@ -64,7 +64,7 @@ export const portfolioItems = [
         "heading": "Github Devfinder App",
         "category": "Challenge",
         "date": 221200,
-        "imageSrc": "url(./images/portfolioThumbnails/githubdevfinderapp.webp)",
+        "imageSrc": "url(./images/portfolioThumbnails/githubdevfinderapp_854x478px.webp)",
         "websiteLink": "https://10high.github.io/GithubSearchApp/",
         "githubLink": "https://github.com/10high/GithubSearchApp",
         "description": "Frontend Mentor Challenge",
