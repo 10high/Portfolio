@@ -38,7 +38,7 @@ export const portfolioItems = [
         "websiteLink": "https://10high.github.io/FrontendMentorPodRequest/",
         "githubLink": "https://github.com/10high/FrontendMentorPodRequest",
         "description": "A Frontend Mentor challenge.",
-        "descriptionList": ["Basic JS form error handling", "Pixel perfect", "BEM"]
+        "descriptionList": ["Basic JS form error handling", "Pixel perfect", "BEM CSS"]
     },
     {
         "heading": "Portfolio Page",
@@ -49,5 +49,25 @@ export const portfolioItems = [
         "githubLink": "https://github.com/10high/Portfolio",
         "description": "This portfolio page!",
         "descriptionList": ["Factory functions", "Dynamic JavaScript", "RegEx content formatting", "Modular structure", "PostCSS / BEM"]
+    },
+    {
+        "heading": "Clock App",
+        "category": "Challenge",
+        "date": 230207,
+        "imageSrc": "url(./images/portfolioThumbnails/clockapp_854x474px.webp)",
+        "websiteLink": "https://clinquant-cajeta-675914.netlify.app/",
+        "githubLink": "https://github.com/10high/ClockApp",
+        "description": "Frontend Mentor Challenge",
+        "descriptionList": ["API, async/await", "Netlify serverless function (keeps API key secret)", "Vanilla JavaScript", "BEM CSS", "Parcel bundler"]
+    },
+    {
+        "heading": "Github Devfinder App",
+        "category": "Challenge",
+        "date": 221200,
+        "imageSrc": "url(./images/portfolioThumbnails/githubdevfinderapp.webp)",
+        "websiteLink": "https://10high.github.io/GithubSearchApp/",
+        "githubLink": "https://github.com/10high/GithubSearchApp",
+        "description": "Frontend Mentor Challenge",
+        "descriptionList": ["API, async/await", "Light/dark mode w/ prefers-color-scheme", "Vanilla JavaScript", "BEM CSS", "Custom properties", "Parcel bundler"]
     }
 ]
