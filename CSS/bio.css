@@ -20,6 +20,8 @@
 }
 
 .bio__profilePic {
+	width: 148px;
+	height: auto;
 	border: 3px solid #618C78;
 	border-radius: 8px;
 }
