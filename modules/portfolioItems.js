@@ -69,5 +69,15 @@ export const portfolioItems = [
         "githubLink": "https://github.com/10high/GithubSearchApp",
         "description": "Frontend Mentor Challenge",
         "descriptionList": ["API, async/await", "Light/dark mode w/ prefers-color-scheme", "Vanilla JavaScript", "BEM CSS", "Custom properties", "Parcel bundler"]
+    },
+    {
+        "heading": "Placeholder Search App",
+        "category": "Web App",
+        "date": 230401,
+        "imageSrc": "url(./images/portfolioThumbnails/FilemakerPlaceholderSearchApp.png)",
+        "websiteLink": "",
+        "githubLink": "https://github.com/10high/FilemakerPlaceholderSearch",
+        "description": "A Filemaker app recreated as Web app for querying placeholders in the Filemaker database.",
+        "descriptionList": ["Filemaker REST API, async/await", "Create React App with class components", "Requests over PHP proxy", "PHP fmRESTor library", "CSS modules"]
     }
 ]
