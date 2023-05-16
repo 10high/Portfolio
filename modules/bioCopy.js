@@ -6,11 +6,10 @@ export const buildBioCopy = {
     },
     copy: `*Hi, I'm Michael!*
     I speak *HTML, CSS,* and *JavaScript.*
+    I currently like working with *React, PostCSS,* and *Vite,* but I'm also familiar with *Parcel* and *BEM notation.*  
     I'm also fluent in *English* and *German.*
-    Check out my <link=https://www.linkedin.com/in/michael-waaler-55854717/urlend>*LinkedIn*</link> profile for more details on my *work history* and *education.*
-    You can also *download* my CV <link=../Portfolio/documents/MichaelWaaler_CV_resume.pdfurlend>*here.*</link>
-    When I'm not *working* or *learning*, I enjoy *walking* my dog, *exercising* at the local gym, *playing* video games with my children, and *spending time* with my family.
-    I'm also a founding member of the *Hamburg Film Club*, which is infamous for its annual Halloween movie marathons!`,
+    Check out my <link=https://www.linkedin.com/in/michael-waaler-55854717/urlend>*LinkedIn*</link> profile for more info about me.
+    You can also *download* my CV <link=../Portfolio/documents/MichaelWaaler_CV_resume.pdfurlend>*here.*</link>`,
     formatCopy() {
         this.copy = this.copy.replace(/(\*.*?\*)/gm, `<span class="boldText">$1</span>`);
         this.copy = this.copy.replace(/\*/gm, "");
