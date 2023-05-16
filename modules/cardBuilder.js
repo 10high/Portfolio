@@ -48,6 +48,10 @@ const buildCardElements = portfolioItem => {
     card__popupGitLink.hidden = true;
   }
 
+  if (portfolioItem.websiteLink === "") {
+    card__popupWebsiteLink.hidden = true;
+  }
+
   card.classList.add("card");
   card.setAttribute("tabindex", 0);
   card__popupWrapper.classList.add("card__popupWrapper");
