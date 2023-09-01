@@ -1,141 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="canonical" href="https://www.flyingtens.com/Portfolio/">
-    <meta name="description" content="Frontend Developer Portfolio Page of Michael Waaler">
+    <link rel="canonical" href="https://www.flyingtens.com/Portfolio/" />
+    <meta
+      name="description"
+      content="Frontend Developer Portfolio Page of Michael Waaler"
+    />
 
     <!-- Primary Meta Tags -->
     <title>Portfolio | Michael Waaler | Frontend Developer</title>
-    <meta name="title" content="Portfolio | Michael Waaler | Frontend Developer">
-    <meta name="description" content="Frontend Developer Portfolio Page of Michael Waaler">
+    <meta
+      name="title"
+      content="Portfolio | Michael Waaler | Frontend Developer"
+    />
+    <meta
+      name="description"
+      content="Frontend Developer Portfolio Page of Michael Waaler"
+    />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.flyingtens.com/Portfolio/">
-    <meta property="og:title" content="Portfolio | Michael Waaler | Frontend Developer">
-    <meta property="og:description" content="Frontend Developer Portfolio Page of Michael Waaler">
-    <meta property="og:image"
-        content="https://www.flyingtens.com/Portfolio/images/portfolioThumbnails/PortfolioPage.webp">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.flyingtens.com/Portfolio/" />
+    <meta
+      property="og:title"
+      content="Portfolio | Michael Waaler | Frontend Developer"
+    />
+    <meta
+      property="og:description"
+      content="Frontend Developer Portfolio Page of Michael Waaler"
+    />
+    <meta
+      property="og:image"
+      content="https://www.flyingtens.com/Portfolio/images/portfolioThumbnails/PortfolioPage.webp"
+    />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.flyingtens.com/Portfolio/">
-    <meta property="twitter:title" content="Portfolio | Michael Waaler | Frontend Developer">
-    <meta property="twitter:description" content="Frontend Developer Portfolio Page of Michael Waaler">
-    <meta property="twitter:image"
-        content="https://www.flyingtens.com/Portfolio/images/portfolioThumbnails/PortfolioPage.webp">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://www.flyingtens.com/Portfolio/"
+    />
+    <meta
+      property="twitter:title"
+      content="Portfolio | Michael Waaler | Frontend Developer"
+    />
+    <meta
+      property="twitter:description"
+      content="Frontend Developer Portfolio Page of Michael Waaler"
+    />
+    <meta
+      property="twitter:image"
+      content="https://www.flyingtens.com/Portfolio/images/portfolioThumbnails/PortfolioPage.webp"
+    />
 
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/Portfolio/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/Portfolio/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/Portfolio/favicon-16x16.png">
-    <link rel="manifest" href="/Portfolio/site.webmanifest">
-    <link rel="mask-icon" href="/Portfolio/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="/Portfolio/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="/Portfolio/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-
-
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/Portfolio/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/Portfolio/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/Portfolio/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/Portfolio/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/Portfolio/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/Portfolio/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/Portfolio/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet"> -->
-    <link rel="preload" as="font" type="font/woff2" href="../Fonts/Jost/jost-v14-latin-regular.woff2" crossorigin>
-    <link rel="stylesheet" href="./public/portfolioPage.css">
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="../Fonts/Jost/jost-v14-latin-regular.woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./public/portfolioPage.css" />
     <script type="module" src="./JavaScript/portfolioPage.js"></script>
     <title>Portfolio | Michael Waaler | Frontend Developer</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="pageWrapper">
-        <nav id="navbar" class="navbar">
-            <p class="navbar__name">Michael Waaler</p>
-            <button id="aboutMeButton" type="button" title="About me">
-                <div class="navbar__logo navbar__iconLink">
-                    <img id="logo1" src="./images/10high1.webp" alt="" width="32" height="32">
-                    <img id="logo2" src="./images/10high2.webp" alt="" width="32" height="32">
-                    <img id="sayHi" src="./images/SayHi.svg" alt="" width="118" height="39">
-                </div>
-            </button>
-            <ul class="navbar__iconsWrapper">
-                <li>
-                    <a class="navbar__iconLink" href="mailto:michael@flyingtens.com" title="Email">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                            viewBox="0 0 16 16">
-                            <path
-                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a class="navbar__iconLink" href="https://github.com/10high" target="_blank" rel="noopener"
-                        title="Github">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                            viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a class="navbar__iconLink" href="https://www.linkedin.com/in/michael-waaler-55854717/"
-                        target="_blank" rel="noopener" title="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                            viewBox="0 0 16 16">
-                            <path
-                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <header id="header" class="header">
-            <div class="header__headingContainer">
-                <h1 class="header__heading">Portfolio</h1>
-                <div class="header__iconsWrapper">
-                    <img class="header__icon" src="./images/HTML5Logo.svg" alt="HTML5 logo and wordmark" width="36"
-                        height="36">
-                    <img class="header__icon" src="./images/CSS3_logo_and_wordmark.svg" alt="CSS logo and wordmark"
-                        width="25" height="36">
-                    <img class="header__icon" src="./images/Unofficial_JavaScript_logo36x36.svg" alt="JavaScript logo"
-                        width="36" height="36">
-                </div>
-            </div>
-            <div class="header__buttonContainer">
-                <button id="sortButton" class="header__button header__button--downArrow" type="button">Most
-                    recent</button>
-            </div>
-            <div class="header__divider"></div>
-        </header>
-        <article id="bioMobile" class="bio bio__mobile">
-            <h2 class="sr-only">About Me</h2>
-            <button id="bioCloseButton" class="bio__closeButton" type="button" title="Close"
-                aria-label="Close dialogue box">X</button>
-
+      <nav id="navbar" class="navbar">
+        <p class="navbar__name">Michael Waaler</p>
+        <button id="aboutMeButton" type="button" title="About me">
+          <div class="navbar__logo navbar__iconLink">
+            <img
+              id="logo1"
+              src="./images/10high1.webp"
+              alt=""
+              width="32"
+              height="32"
+            />
+            <img
+              id="logo2"
+              src="./images/10high2.webp"
+              alt=""
+              width="32"
+              height="32"
+            />
+            <img
+              id="sayHi"
+              src="./images/SayHi.svg"
+              alt=""
+              width="118"
+              height="39"
+            />
+          </div>
+        </button>
+        <ul class="navbar__iconsWrapper">
+          <li>
+            <a
+              class="navbar__iconLink"
+              href="mailto:michael@flyingtens.com"
+              title="Email"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navbar__iconLink"
+              href="https://github.com/10high"
+              target="_blank"
+              rel="noopener"
+              title="Github"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navbar__iconLink"
+              href="https://www.linkedin.com/in/michael-waaler-55854717/"
+              target="_blank"
+              rel="noopener"
+              title="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <header id="header" class="header">
+        <div class="header__headingContainer">
+          <h1 class="header__heading">Portfolio</h1>
+          <div class="header__iconsWrapper">
+            <img
+              class="header__icon"
+              src="./images/HTML5Logo.svg"
+              alt="HTML5 logo and wordmark"
+              width="36"
+              height="36"
+            />
+            <img
+              class="header__icon"
+              src="./images/CSS3_logo_and_wordmark.svg"
+              alt="CSS logo and wordmark"
+              width="25"
+              height="36"
+            />
+            <img
+              class="header__icon"
+              src="./images/Unofficial_JavaScript_logo36x36.svg"
+              alt="JavaScript logo"
+              width="36"
+              height="36"
+            />
+            <img
+              class="header__icon"
+              src="./images/React Logo.svg"
+              alt="React logo"
+              width="36"
+              height="36"
+            />
+          </div>
+        </div>
+        <div class="header__buttonContainer">
+          <button
+            id="sortButton"
+            class="header__button header__button--downArrow"
+            type="button"
+          >
+            Most recent
+          </button>
+        </div>
+        <div class="header__divider"></div>
+      </header>
+      <article id="bioMobile" class="bio bio__mobile">
+        <h2 class="sr-only">About Me</h2>
+        <button
+          id="bioCloseButton"
+          class="bio__closeButton"
+          type="button"
+          title="Close"
+          aria-label="Close dialogue box"
+        >
+          X
+        </button>
+      </article>
+      <main>
+        <div id="cardContainer" class="card__container"></div>
+        <button id="showMoreButton" class="showMoreButton" type="button">
+          SHOW MORE
+        </button>
+        <div id="bioDivider" class="segmentDivider"></div>
+        <article id="bioDesktop" class="bio bio__desktop">
+          <h2 class="sr-only">About Me</h2>
         </article>
-        <main>
-            <div id="cardContainer" class="card__container"></div>
-            <button id="showMoreButton" class="showMoreButton" type="button">SHOW MORE</button>
-            <div id="bioDivider" class="segmentDivider"></div>
-            <article id="bioDesktop" class="bio bio__desktop">
-                <h2 class="sr-only">About Me</h2>
-
-            </article>
-        </main>
+      </main>
     </div>
     <footer class="footer">
-        <div class="footer__linksWrapper">
-            <a class="footer__legalLink" href="../LegalPages/impressum.html">Impressum</a>
-            <a class="footer__legalLink" href="../LegalPages/datenschuetzErklaerung.html">Datenschutzerkl&auml;rung</a>
-            <a class="footer__legalLink" href="../LegalPages/haftungsausschluss.html">Haftungsausschluss</a>
-        </div>
+      <div class="footer__linksWrapper">
+        <a class="footer__legalLink" href="../LegalPages/impressum.html"
+          >Impressum</a
+        >
+        <a
+          class="footer__legalLink"
+          href="../LegalPages/datenschuetzErklaerung.html"
+          >Datenschutzerkl&auml;rung</a
+        >
+        <a
+          class="footer__legalLink"
+          href="../LegalPages/haftungsausschluss.html"
+          >Haftungsausschluss</a
+        >
+      </div>
     </footer>
-</body>
-
+  </body>
 </html>
