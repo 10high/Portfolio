@@ -5,8 +5,8 @@ export const buildBioCopy = {
     return this.profilePic.replace(/<img/, `<img id="bioPicDesktop"`);
   },
   copy: `*Hi, I'm Michael!*
-    I speak *HTML, CSS,* and *JavaScript.*
-    I currently like working with *React, PostCSS,* and *Vite,* but I'm also familiar with *Parcel* and *BEM notation.*  
+    I speak *HTML, CSS,* *JavaScript*, and a little *SQL.*
+    I'm currently focused on working with *React* and *PostCSS* in *Vite,* with *vitest* and *React Testing Library* for unit and integration testing.  
     I'm also fluent in *English* and *German.*
     Check out my <link=https://www.linkedin.com/in/michael-waaler-55854717/urlend>*LinkedIn*</link> profile for more info about me.
     You can also *download* my CV <link=../Portfolio/documents/01_Michael_Waaler_Junior_Frontend_Developer.pdfurlend>*here.*</link>`,
